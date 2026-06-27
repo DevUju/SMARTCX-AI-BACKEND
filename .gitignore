@@ -48,6 +48,26 @@ lerna-debug.log*
 
 # Runtime data
 pids
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+smartcx.db
+*.sql
+
+# Docker volumes and temp files
+postgres_data/
+.docker/
+
+# Environment specific
+.env.production
+.env.staging
+
+# Backup files
+*.bak
+*.backup
+*.dump
 *.pid
 *.seed
 *.pid.lock

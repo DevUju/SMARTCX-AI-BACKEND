@@ -1,98 +1,270 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# SmartCX AI Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A NestJS backend for managing tasks, projects, events, and productivity analytics with PostgreSQL.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Quick Start
 
-## Description
+### Prerequisites
+- Node.js 18+
+- PostgreSQL 12+ ([Setup Guide](./POSTGRESQL_SETUP.md))
+- npm or yarn
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Setup
 
-## Project setup
-
+1. **Install dependencies**
 ```bash
-$ npm install
+npm install
 ```
 
-## Compile and run the project
-
+2. **Configure PostgreSQL** (see [POSTGRESQL_SETUP.md](./POSTGRESQL_SETUP.md))
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Create database and user
+psql -U postgres
+# Follow instructions in POSTGRESQL_SETUP.md
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+3. **Configure environment variables**
+Edit `.env` file:
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=smartcx_ai
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+4. **Start the server**
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Development mode (with auto-reload)
+npm run start:dev
+
+# Production mode
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Server runs on `http://localhost:3000`
 
-## Resources
+### 5. (Optional) Seed Test Data
+```bash
+# Populate database with test users and data
+npm run seed
 
-Check out a few resources that may come in handy when working with NestJS:
+# Test credentials after seeding:
+# Email: manager@smartcx.local
+# Password: password123
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+See [SEEDER_GUIDE.md](./SEEDER_GUIDE.md) for details on test data.
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📚 API Documentation
 
-## Stay in touch
+### Base URL
+```
+http://localhost:3000
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Authentication Endpoints
+- `POST /auth/signup` - Register new user
+- `POST /auth/login` - User login
+- `GET /auth/me` - Get current user profile
 
-## License
+### Task Endpoints
+- `GET /tasks` - Get all tasks
+- `POST /tasks` - Create task
+- `GET /tasks/:id` - Get specific task
+- `PUT /tasks/:id` - Update task
+- `DELETE /tasks/:id` - Delete task
+- `PATCH /tasks/:id/complete` - Mark task as complete
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Project Endpoints
+- `GET /projects` - Get all projects
+- `POST /projects` - Create project
+- `GET /projects/:id` - Get specific project
+- `PUT /projects/:id` - Update project
+- `DELETE /projects/:id` - Delete project
+
+### Event Endpoints
+- `GET /events` - Get all events
+- `POST /events` - Create event
+- `GET /events/:id` - Get specific event
+- `PUT /events/:id` - Update event
+- `DELETE /events/:id` - Delete event
+
+### Analytics Endpoints
+- `GET /analytics/productivity` - Get productivity metrics
+- `GET /analytics/summary` - Get task summary
+
+---
+
+## 🗄️ Database
+
+### Database Type: PostgreSQL
+
+### Tables
+- `user` - User accounts
+- `task` - Tasks and todo items
+- `project` - Projects
+- `event` - Calendar events
+
+### Connection String
+```
+postgresql://postgres:postgres@localhost:5432/smartcx_ai
+```
+
+For detailed setup instructions, see [POSTGRESQL_SETUP.md](./POSTGRESQL_SETUP.md)
+
+---
+
+## 🏗️ Architecture
+
+```
+src/
+├── auth/              # Authentication (JWT, login, signup)
+├── tasks/             # Task management
+├── projects/          # Project management
+├── events/            # Event management
+├── analytics/         # Productivity analytics
+├── entities/          # Database models
+├── config/            # Configuration
+├── common/            # Utilities
+├── app.module.ts      # App module
+└── main.ts            # Entry point
+```
+
+---
+
+## 🔐 Security Features
+
+- ✅ JWT authentication (7-day tokens)
+- ✅ Password hashing (bcrypt)
+- ✅ CORS configuration
+- ✅ DTO validation
+- ✅ SQL injection protection (TypeORM)
+- ✅ SSL support (production)
+
+---
+
+## 📝 Development
+
+### Running Tests
+```bash
+# Unit tests
+npm run test
+
+# E2E tests
+npm run test:e2e
+
+# Test coverage
+npm run test:cov
+```
+
+### Linting
+```bash
+npm run lint
+```
+
+### Formatting
+```bash
+npm run format
+```
+
+### Building for Production
+```bash
+npm run build
+```
+
+---
+
+## 🔧 Environment Variables
+
+```env
+# Server Configuration
+NODE_ENV=development
+PORT=3000
+
+# JWT Configuration
+JWT_SECRET=your-secret-key-here
+
+# PostgreSQL Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=smartcx_ai
+```
+
+---
+
+## 🚨 Troubleshooting
+
+### PostgreSQL Connection Issues
+- Verify PostgreSQL is running
+- Check `.env` credentials
+- See [POSTGRESQL_SETUP.md](./POSTGRESQL_SETUP.md)
+
+### Port Already in Use
+```bash
+# Change PORT in .env
+PORT=3001
+```
+
+### Tables Not Created
+- Restart the server
+- Check logs for errors
+- Verify database connection
+
+---
+
+## 📦 Dependencies
+
+- **NestJS 11** - Framework
+- **TypeORM 0.3** - ORM
+- **PostgreSQL** - Database
+- **JWT** - Authentication
+- **bcryptjs** - Password hashing
+- **Class Validator** - Input validation
+
+---
+
+## 🚀 Deployment
+
+### Docker
+```bash
+docker build -t smartcx-backend .
+docker run -p 3000:3000 smartcx-backend
+```
+
+### Environment Setup
+```bash
+NODE_ENV=production
+JWT_SECRET=strong-secret-here
+DB_HOST=your-postgres-host
+DB_USER=your-db-user
+DB_PASSWORD=strong-password
+```
+
+---
+
+## 📖 Additional Resources
+
+- [NestJS Documentation](https://docs.nestjs.com)
+- [TypeORM Documentation](https://typeorm.io)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs)
+- [JWT Documentation](https://jwt.io)
+
+---
+
+## 📞 Support
+
+For issues or questions:
+1. Check logs: `npm run start:dev`
+2. Review [POSTGRESQL_SETUP.md](./POSTGRESQL_SETUP.md)
+3. Check API endpoints documentation above
+
+---
+
+**Last Updated:** 2026-06-23
+**Database:** PostgreSQL 12+
+**Version:** 1.0.0
