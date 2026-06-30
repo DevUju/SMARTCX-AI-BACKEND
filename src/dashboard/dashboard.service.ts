@@ -5,12 +5,15 @@ import { Ticket } from 'src/common/entities/ticket.entity';
 import { TicketStatus } from 'src/common/enums/ticket-status.enum';
 import { DashboardMetricsDto } from './dto/dashboard-metrics.dto';
 import { DashboardTrendPointDto, DashboardTrendsDto } from './dto/dashboard-trends.dto';
+import { AiService } from 'src/ai/ai.service';
+
 
 @Injectable()
 export class DashboardService {
   constructor(
     @InjectRepository(Ticket)
     private readonly ticketRepository: Repository<Ticket>,
+      private readonly aiService: AiService,
   ) {}
 
   async getMetrics(businessId: string): Promise<DashboardMetricsDto> {
@@ -54,6 +57,31 @@ export class DashboardService {
       avgResponseHours,
     };
   }
+
+  async getAiInsight(businessId: string): Promise<{ summary: string }> {
+  const activeTickets = await this.ticketRepository.find({
+    where: { businessId, status: TicketStatus.OPEN },
+    order: { createdAt: 'DESC' },
+    take: 20,
+    select: ['category', 'priority', 'status'],
+  });
+
+  if (activeTickets.length === 0) {
+    return { summary: 'No active tickets to analyze right now.' };
+  }
+
+  const breakdown = activeTickets.map((ticket) => ({
+    category: ticket.category,
+    priority: ticket.priority,
+  }));
+
+  const summary = await this.aiService.generateInsightSummary({
+    totalActiveTickets: activeTickets.length,
+    breakdown,
+  });
+
+  return { summary };
+}
 
   async getTrends(businessId: string): Promise<DashboardTrendsDto> {
     const [openedRaw, resolvedRaw] = await Promise.all([

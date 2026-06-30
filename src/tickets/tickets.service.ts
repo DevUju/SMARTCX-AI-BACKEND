@@ -26,6 +26,8 @@ import {
   TicketResponseDto,
 } from './dto/ticket-response.dto';
 import { UpdateTicketStatusDto } from './dto/update-ticket-status.dto';
+import { AiService } from 'src/ai/ai.service';
+
 
 @Injectable()
 export class TicketsService {
@@ -40,6 +42,7 @@ export class TicketsService {
     private readonly userRepository: Repository<User>,
     @InjectRepository(Message)
     private readonly messageRepository: Repository<Message>,
+     private readonly aiService: AiService,
   ) {}
 
   async create(
@@ -228,22 +231,34 @@ export class TicketsService {
     return this.toMessageResponse(saved);
   }
 
-  async resolve(
-    businessId: string,
-    ticketId: string,
-    input: ResolveTicketDto,
-  ): Promise<TicketResponseDto> {
-    const ticket = await this.findTenantTicket(businessId, ticketId);
+ async resolve(
+  businessId: string,
+  ticketId: string,
+  input: ResolveTicketDto,
+): Promise<TicketResponseDto> {
+  const ticket = await this.findTenantTicket(businessId, ticketId);
 
-    ticket.status = TicketStatus.RESOLVED;
-    ticket.resolvedAt = new Date();
-    ticket.resolutionSummary = input.resolutionSummary;
-    ticket.sentimentShiftStart = input.sentimentShiftStart ?? ticket.sentimentShiftStart;
-    ticket.sentimentShiftEnd = input.sentimentShiftEnd ?? ticket.sentimentShiftEnd;
+  const summary = await this.aiService.generateResolutionSummary(
+    {
+      ticketNumber: ticket.ticketNumber,
+      title: ticket.title,
+      category: ticket.category,
+    },
+    ticket.messages.map((message) => ({
+      senderType: message.senderType,
+      content: message.content,
+    })),
+  );
 
-    const saved = await this.ticketRepository.save(ticket);
-    return this.toResponse(saved);
-  }
+  ticket.status = TicketStatus.RESOLVED;
+  ticket.resolvedAt = new Date();
+  ticket.resolutionSummary = `${summary.problem}\n\n${summary.action}`;
+  ticket.sentimentShiftStart = input.sentimentShiftStart ?? ticket.sentimentShiftStart;
+  ticket.sentimentShiftEnd = summary.sentimentShift;
+
+  const saved = await this.ticketRepository.save(ticket);
+  return this.toResponse(saved);
+}
 
   private async findTenantTicket(businessId: string, ticketId: string): Promise<Ticket> {
     const ticket = await this.ticketRepository.findOne({

@@ -7,9 +7,10 @@ import { Ticket } from 'src/common/entities/ticket.entity';
 import { User } from 'src/common/entities/user.entity';
 import { TicketsController } from './tickets.controller';
 import { TicketsService } from './tickets.service';
+import { AiModule } from 'src/ai/ai.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Ticket, Issue, Customer, User, Message])],
+  imports: [TypeOrmModule.forFeature([Ticket, Issue, Customer, User, Message]), AiModule],
   controllers: [TicketsController],
   providers: [TicketsService],
   exports: [TicketsService],

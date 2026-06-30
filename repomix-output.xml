@@ -1,0 +1,6890 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.prettierrc
+docker-compose.yml
+eslint.config.mjs
+MIGRATION_POSTGRESQL.md
+nest-cli.json
+package.json
+POSTGRESQL_SETUP.md
+README.md
+SEEDER_GUIDE.md
+src/ai/ai.module.ts
+src/ai/ai.service.ts
+src/ai/types/ai.types.ts
+src/analytics/analytics.controller.ts
+src/analytics/analytics.module.ts
+src/analytics/analytics.service.ts
+src/app.controller.spec.ts
+src/app.controller.ts
+src/app.module.ts
+src/app.service.ts
+src/auth/auth.controller.ts
+src/auth/auth.dto.ts
+src/auth/auth.module.ts
+src/auth/auth.service.ts
+src/auth/decorators/current-user.decorator.ts
+src/auth/decorators/public.decorator.ts
+src/auth/decorators/roles.decorator.ts
+src/auth/dto/auth-response.dto.ts
+src/auth/dto/login.dto.ts
+src/auth/dto/register-auth.dto.ts
+src/auth/guards/jwt-auth.guard.ts
+src/auth/guards/roles.guard.ts
+src/auth/jwt.guard.ts
+src/auth/jwt.strategy.ts
+src/auth/strategies/jwt.strategy.ts
+src/auth/types/authenticated-user.type.ts
+src/business/business.controller.ts
+src/business/business.module.ts
+src/business/business.service.ts
+src/business/dto/register-business.dto.ts
+src/channels/channels.controller.ts
+src/channels/channels.module.ts
+src/channels/channels.service.ts
+src/channels/dto/connect-channel.dto.ts
+src/common/entities/audit-log.entity.ts
+src/common/entities/business.entity.ts
+src/common/entities/channel.entity.ts
+src/common/entities/customer.entity.ts
+src/common/entities/index.ts
+src/common/entities/issue.entity.ts
+src/common/entities/message.entity.ts
+src/common/entities/ticket.entity.ts
+src/common/entities/user.entity.ts
+src/common/enums/channel-type.enum.ts
+src/common/enums/customer-status.enum.ts
+src/common/enums/index.ts
+src/common/enums/issue-status.enum.ts
+src/common/enums/message-sender-type.enum.ts
+src/common/enums/priority.enum.ts
+src/common/enums/sentiment-label.enum.ts
+src/common/enums/ticket-status.enum.ts
+src/common/enums/user-role.enum.ts
+src/common/interceptors/audit.interceptor.ts
+src/config/typeorm.config.ts
+src/customers/customers.controller.ts
+src/customers/customers.module.ts
+src/customers/customers.service.ts
+src/customers/dto/list-customers-query.dto.ts
+src/dashboard/dashboard.controller.ts
+src/dashboard/dashboard.module.ts
+src/dashboard/dashboard.service.ts
+src/dashboard/dto/dashboard-metrics.dto.ts
+src/dashboard/dto/dashboard-trends.dto.ts
+src/database/data-source.ts
+src/database/migrations/1760000000000-InitSchema.ts
+src/database/README.md
+src/database/seeds/demo.seed.ts
+src/database/seeds/index.ts
+src/database/seeds/run-seed.ts
+src/database/seeds/seed.command.ts
+src/database/seeds/seed.module.ts
+src/database/seeds/seed.service.ts
+src/database/typeorm.config.ts
+src/entities/event.entity.ts
+src/entities/index.ts
+src/entities/project.entity.ts
+src/entities/task.entity.ts
+src/entities/user.entity.ts
+src/events/events.controller.ts
+src/events/events.dto.ts
+src/events/events.module.ts
+src/events/events.service.ts
+src/gateway/realtime.gateway.ts
+src/issues/dto/issue-response.dto.ts
+src/issues/dto/list-issues-query.dto.ts
+src/issues/dto/update-issue.dto.ts
+src/issues/issues.controller.ts
+src/issues/issues.module.ts
+src/issues/issues.service.ts
+src/main.ts
+src/messages/messages.module.ts
+src/messages/messages.service.ts
+src/projects/projects.controller.ts
+src/projects/projects.dto.ts
+src/projects/projects.module.ts
+src/projects/projects.service.ts
+src/tasks/tasks.controller.ts
+src/tasks/tasks.dto.ts
+src/tasks/tasks.module.ts
+src/tasks/tasks.service.ts
+src/tickets/dto/add-ticket-message.dto.ts
+src/tickets/dto/assign-ticket.dto.ts
+src/tickets/dto/create-ticket.dto.ts
+src/tickets/dto/list-tickets-query.dto.ts
+src/tickets/dto/resolve-ticket.dto.ts
+src/tickets/dto/ticket-response.dto.ts
+src/tickets/dto/update-ticket-status.dto.ts
+src/tickets/tickets.controller.ts
+src/tickets/tickets.module.ts
+src/tickets/tickets.service.ts
+src/users/dto/invite-user.dto.ts
+src/users/dto/update-user.dto.ts
+src/users/users.controller.ts
+src/users/users.module.ts
+src/users/users.service.ts
+src/webhooks/dto/inbound-webhook.dto.ts
+src/webhooks/webhooks.controller.ts
+src/webhooks/webhooks.module.ts
+test/app.e2e-spec.ts
+test/jest-e2e.json
+tsconfig.build.json
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".prettierrc">
+{
+  "singleQuote": true,
+  "trailingComma": "all"
+}
+</file>
+
+<file path="docker-compose.yml">
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: smartcx_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: smartcx_ai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - smartcx_network
+
+  # Optional: pgAdmin for database management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: smartcx_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@smartcx.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - smartcx_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  smartcx_network:
+    driver: bridge
+</file>
+
+<file path="eslint.config.mjs">
+// @ts-check
+import eslint from '@eslint/js';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  {
+    ignores: ['eslint.config.mjs'],
+  },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  eslintPluginPrettierRecommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      },
+      sourceType: 'commonjs',
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-floating-promises': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      "prettier/prettier": ["error", { endOfLine: "auto" }],
+    },
+  },
+);
+</file>
+
+<file path="POSTGRESQL_SETUP.md">
+# PostgreSQL Setup Guide for SmartCX AI
+
+## Installation
+
+### macOS
+```bash
+# Using Homebrew
+brew install postgresql@15
+brew services start postgresql@15
+
+# Verify installation
+psql --version
+```
+
+### Windows
+1. Download from https://www.postgresql.org/download/windows/
+2. Run the installer
+3. Remember the password you set for the `postgres` user
+4. PostgreSQL runs as a service automatically
+
+### Linux (Ubuntu/Debian)
+```bash
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+
+# Start the service
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+```
+
+---
+
+## Setup SmartCX AI Database
+
+### Step 1: Connect to PostgreSQL
+```bash
+# macOS/Linux
+psql -U postgres
+
+# Windows (using psql)
+psql -U postgres
+```
+
+### Step 2: Create Database and User
+```sql
+-- Create the database
+CREATE DATABASE smartcx_ai;
+
+-- Create a user (or use default postgres user)
+CREATE USER smartcx_user WITH PASSWORD 'smartcx_password';
+
+-- Grant privileges
+ALTER ROLE smartcx_user SET client_encoding TO 'utf8';
+ALTER ROLE smartcx_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE smartcx_user SET default_transaction_deferrable TO on;
+ALTER ROLE smartcx_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE smartcx_ai TO smartcx_user;
+
+-- Connect to the database and grant schema privileges
+\c smartcx_ai
+GRANT ALL PRIVILEGES ON SCHEMA public TO smartcx_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO smartcx_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO smartcx_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO smartcx_user;
+
+-- Exit psql
+\q
+```
+
+---
+
+## Configure Backend
+
+### Update .env file
+The `.env` file has been updated with PostgreSQL settings:
+
+```env
+# PostgreSQL Database Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=smartcx_ai
+```
+
+**Modify these values** to match your PostgreSQL setup:
+- `DB_HOST` - PostgreSQL server address (default: localhost)
+- `DB_PORT` - PostgreSQL port (default: 5432)
+- `DB_USER` - PostgreSQL user (default: postgres)
+- `DB_PASSWORD` - PostgreSQL password (change from default!)
+- `DB_NAME` - Database name (default: smartcx_ai)
+
+---
+
+## Start the Backend
+
+### Step 1: Install dependencies
+```bash
+cd SMARTCX-AI-BACKEND-main
+npm install
+```
+
+### Step 2: Verify PostgreSQL is running
+```bash
+# Test connection
+psql -U postgres -d smartcx_ai
+```
+
+### Step 3: Start the backend
+```bash
+npm run start:dev
+```
+
+The backend will automatically:
+1. Connect to PostgreSQL
+2. Create tables (synchronize database schema)
+3. Start listening on http://localhost:3000
+
+---
+
+## Verify Setup
+
+### Check if backend is running
+```bash
+curl http://localhost:3000
+# Should return: {"message":"Hello World!"}
+```
+
+### Check tables in PostgreSQL
+```bash
+psql -U postgres -d smartcx_ai
+
+# List tables
+\dt
+
+# You should see:
+# - public | event
+# - public | project
+# - public | task
+# - public | user
+
+# Exit
+\q
+```
+
+---
+
+## Useful PostgreSQL Commands
+
+```bash
+# Connect to database
+psql -U postgres -d smartcx_ai
+
+# List databases
+\l
+
+# List tables
+\dt
+
+# Describe a table
+\d tablename
+
+# View table contents
+SELECT * FROM "user";
+
+# Delete database (be careful!)
+DROP DATABASE smartcx_ai;
+
+# Exit psql
+\q
+```
+
+---
+
+## Troubleshooting
+
+### "Connection refused"
+- Check if PostgreSQL is running: `brew services list` (macOS)
+- Restart PostgreSQL: `brew services restart postgresql@15`
+
+### "Authentication failed for user"
+- Verify password in .env matches PostgreSQL user
+- Try connecting manually: `psql -U postgres -d smartcx_ai`
+
+### "Database does not exist"
+- Create the database using the SQL commands above
+
+### "Tables not created"
+- Restart backend: `npm run start:dev`
+- Check backend console for errors
+- Verify database is created and accessible
+
+### Port already in use
+- PostgreSQL default: 5432
+- Change DB_PORT in .env and restart
+
+---
+
+## Docker Setup (Alternative)
+
+If you prefer to use Docker:
+
+```bash
+# Pull PostgreSQL image
+docker pull postgres:15
+
+# Run PostgreSQL container
+docker run --name smartcx_postgres \
+  -e POSTGRES_DB=smartcx_ai \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  -d postgres:15
+
+# Verify running
+docker ps
+
+# Connect to database
+psql -h localhost -U postgres -d smartcx_ai
+```
+
+---
+
+## Production Setup
+
+For production environments:
+
+1. **Use strong passwords** - Change default postgres password
+2. **Enable SSL** - Configure `.env` with SSL certificate paths
+3. **Use managed database** - Consider AWS RDS, Google Cloud SQL, or Azure Database
+4. **Backup regularly** - Set up automated PostgreSQL backups
+5. **Monitor performance** - Use PostgreSQL monitoring tools
+6. **Scale database** - Use connection pooling (PgBouncer)
+
+---
+
+## Reset Database
+
+To completely reset and start fresh:
+
+```bash
+# Connect to PostgreSQL
+psql -U postgres
+
+# Drop existing database
+DROP DATABASE IF EXISTS smartcx_ai;
+
+# Create new database
+CREATE DATABASE smartcx_ai;
+
+# Grant privileges to user
+GRANT ALL PRIVILEGES ON DATABASE smartcx_ai TO postgres;
+
+# Exit
+\q
+
+# Restart backend to recreate tables
+npm run start:dev
+```
+
+---
+
+## Performance Tips
+
+1. **Enable Query Logging** in .env:
+   ```env
+   # For development
+   LOGGING=true
+   ```
+
+2. **Create Indexes** - Already configured in entities (UUID primary keys)
+
+3. **Connection Pooling** - Consider pgBouncer for production
+
+4. **Regular Maintenance**:
+   ```sql
+   ANALYZE smartcx_ai;
+   VACUUM ANALYZE smartcx_ai;
+   ```
+
+---
+
+For more information, visit: https://www.postgresql.org/docs/
+</file>
+
+<file path="SEEDER_GUIDE.md">
+# Database Seeder Guide
+
+This guide explains how to use the SmartCX AI database seeder to populate your database with test data.
+
+---
+
+## 🌱 What is the Seeder?
+
+The seeder is a utility that populates your database with realistic test data for development and testing. It creates:
+
+- **4 Test Users** with different personas
+- **9 Test Tasks** with various statuses and priorities
+- **7 Test Projects** with progress tracking
+- **8 Test Events** for calendar functionality
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Backend running on port 3000 (or configured port)
+- PostgreSQL database running and connected
+- Backend dependencies installed: `npm install`
+
+### Run the Seeder
+
+```bash
+# Using ts-node (development)
+npm run seed
+
+# After building for production
+npm run seed:build
+```
+
+**Expected Output:**
+```
+🌱 Starting database seeding...
+🧹 Clearing existing data...
+✅ Users created: 4
+✅ Tasks created: 9
+✅ Projects created: 7
+✅ Events created: 8
+✨ Database seeding completed successfully!
+
+📝 Test Credentials:
+-------------------
+Email: manager@smartcx.local
+Password: password123
+Persona: Manager
+---
+Email: freelancer@smartcx.local
+Password: password123
+Persona: Freelancer
+---
+Email: executive@smartcx.local
+Password: password123
+Persona: Executive
+---
+Email: demo@smartcx.local
+Password: password123
+Persona: Manager
+---
+```
+
+---
+
+## 📝 Test Credentials
+
+After running the seeder, use these credentials to login:
+
+| Email | Password | Persona | Description |
+|-------|----------|---------|------------|
+| manager@smartcx.local | password123 | Manager | Full management access |
+| freelancer@smartcx.local | password123 | Freelancer | Freelancer perspective |
+| executive@smartcx.local | password123 | Executive | Executive view |
+| demo@smartcx.local | password123 | Manager | Demo/testing account |
+
+---
+
+## 📊 Seeded Data Details
+
+### Users (4)
+
+1. **John Manager** (manager@smartcx.local)
+   - Persona: Manager
+   - 3 tasks, 3 projects, 3 events
+
+2. **Sarah Freelancer** (freelancer@smartcx.local)
+   - Persona: Freelancer
+   - 2 tasks, 2 projects, 2 events
+
+3. **Alex Executive** (executive@smartcx.local)
+   - Persona: Executive
+   - 2 tasks, 1 project, 2 events
+
+4. **Demo User** (demo@smartcx.local)
+   - Persona: Manager
+   - 2 tasks, 1 project, 1 event
+
+### Tasks (9)
+
+#### John Manager's Tasks
+- ✋ Complete Q4 Report (HIGH priority, PENDING)
+- ⚙️ Review Team Performance (HIGH priority, IN-PROGRESS)
+- ✅ Plan Next Sprint (MEDIUM priority, COMPLETED)
+
+#### Sarah Freelancer's Tasks
+- ✋ Design UI Mockups (HIGH priority, IN-PROGRESS)
+- ✋ Client Presentation (MEDIUM priority, PENDING)
+
+#### Alex Executive's Tasks
+- ✋ Board Meeting Preparation (HIGH priority, PENDING)
+- ✅ Budget Review (HIGH priority, COMPLETED)
+
+#### Demo User's Tasks
+- ✋ Get Started Tutorial (MEDIUM priority, PENDING)
+- ⚙️ Explore Dashboard (LOW priority, IN-PROGRESS)
+
+### Projects (7)
+
+1. **Mobile App Development** (John Manager, 65% complete)
+2. **Cloud Migration** (John Manager, 40% complete)
+3. **Legacy System Upgrade** (John Manager, 100% complete)
+4. **Website Redesign** (Sarah Freelancer, 75% complete)
+5. **Branding Project** (Sarah Freelancer, 10% complete)
+6. **Digital Transformation** (Alex Executive, 50% complete)
+7. **Learning Project** (Demo User, 25% complete)
+
+### Events (8)
+
+1. **Team Standup** (John Manager, Tomorrow)
+2. **One-on-One with Sarah** (John Manager, Next Week)
+3. **Project Review Meeting** (John Manager, Two Weeks)
+4. **Client Call** (Sarah Freelancer, Tomorrow)
+5. **Design Workshop** (Sarah Freelancer, Next Week)
+6. **Board Meeting** (Alex Executive, Tomorrow)
+7. **Strategy Session** (Alex Executive, Two Weeks)
+8. **Sample Meeting** (Demo User, Tomorrow)
+
+---
+
+## 🔄 Seeder Workflow
+
+When you run the seeder, it performs the following steps:
+
+1. **Clear Database** - Removes all existing data to start fresh
+2. **Create Users** - Creates 4 test users with hashed passwords
+3. **Create Tasks** - Creates tasks for each user with various statuses
+4. **Create Projects** - Creates projects with progress tracking
+5. **Create Events** - Creates calendar events
+6. **Display Credentials** - Shows all test login credentials
+
+### Important: Database Clearing
+
+⚠️ **The seeder CLEARS ALL existing data before seeding!**
+
+Make sure you:
+- Back up any important data before running
+- Only use in development environments
+- Don't run in production without caution
+
+---
+
+## 💾 Using Seeded Data for Testing
+
+### Test User Authentication
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "manager@smartcx.local",
+    "password": "password123"
+  }'
+```
+
+### Get User's Tasks
+```bash
+# After login and getting token
+curl http://localhost:3000/tasks \
+  -H "Authorization: Bearer <your-token>"
+```
+
+### View Tasks by Status
+```bash
+# Get all pending tasks
+curl http://localhost:3000/tasks?status=pending \
+  -H "Authorization: Bearer <your-token>"
+
+# Get all completed tasks
+curl http://localhost:3000/tasks?status=completed \
+  -H "Authorization: Bearer <your-token>"
+```
+
+### Get Projects
+```bash
+curl http://localhost:3000/projects \
+  -H "Authorization: Bearer <your-token>"
+```
+
+### Get Calendar Events
+```bash
+curl http://localhost:3000/events \
+  -H "Authorization: Bearer <your-token>"
+```
+
+---
+
+## 🔧 Customizing the Seeder
+
+### Add More Test Data
+
+Edit `src/database/seeds/seed.service.ts` to:
+
+1. **Add more users** - Modify `createUsers()` method
+2. **Add more tasks** - Modify `createTasks()` method
+3. **Add more projects** - Modify `createProjects()` method
+4. **Add more events** - Modify `createEvents()` method
+
+### Example: Adding a New User
+
+```typescript
+// In createUsers() method
+const usersData = [
+  // ... existing users ...
+  {
+    fullName: 'New User',
+    email: 'newuser@smartcx.local',
+    password: 'password123',
+    persona: 'Manager',
+  },
+];
+```
+
+### Example: Adding a New Task
+
+```typescript
+// In createTasks() method
+{
+  title: 'New Task Title',
+  description: 'Task description here',
+  status: 'pending',  // pending, in-progress, completed
+  priority: 'high',    // high, medium, low
+  dueDate: tomorrow,
+  userId: users[0].id,
+}
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Error: "No database connection"
+
+```bash
+# Check if PostgreSQL is running
+docker-compose ps
+
+# Start PostgreSQL
+docker-compose up -d
+
+# Or with manual PostgreSQL
+brew services start postgresql@15
+
+# Then try seeding again
+npm run seed
+```
+
+### Error: "Module not found"
+
+```bash
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
+
+# Try seeding again
+npm run seed
+```
+
+### Error: "Table does not exist"
+
+```bash
+# Make sure the backend has run once to create tables
+npm run start:dev
+
+# Wait for it to initialize (watch for "successfully started" message)
+# Then Ctrl+C to stop
+
+# Now run seeder
+npm run seed
+```
+
+### Error: "Permission denied"
+
+The seeder needs write access to your database. Verify:
+- Database credentials in `.env` are correct
+- PostgreSQL user has proper permissions
+- Database exists and is accessible
+
+---
+
+## 📋 Workflow: Local Development Setup
+
+Here's the recommended workflow for fresh local setup:
+
+### Step 1: Start PostgreSQL
+```bash
+docker-compose up -d
+# OR
+brew services start postgresql@15
+```
+
+### Step 2: Install Dependencies
+```bash
+npm install
+```
+
+### Step 3: Initialize Database Schema
+```bash
+# Run backend once to let TypeORM create tables
+npm run start:dev
+# Wait for "successfully started" message
+# Press Ctrl+C to stop
+```
+
+### Step 4: Seed Test Data
+```bash
+npm run seed
+```
+
+### Step 5: Start Backend for Development
+```bash
+npm run start:dev
+```
+
+### Step 6: Start Frontend (in another terminal)
+```bash
+cd SmartCX-AI-Frontend-main
+npm install
+ng serve
+```
+
+### Step 7: Login with Test Credentials
+- Open http://localhost:4200
+- Email: manager@smartcx.local
+- Password: password123
+
+---
+
+## ✨ Features of the Seeder
+
+✅ **Automatic Password Hashing** - Passwords are hashed with bcrypt  
+✅ **Realistic Test Data** - Tasks, projects, and events mirror real usage  
+✅ **User Isolation** - Each user has their own data  
+✅ **Status Variety** - Mix of pending, in-progress, and completed items  
+✅ **Priority Levels** - High, medium, and low priority tasks  
+✅ **Date Distribution** - Events spread across different dates  
+✅ **Progress Tracking** - Projects have realistic progress percentages  
+✅ **Easy Customization** - Modify seeder.service.ts to add more data  
+
+---
+
+## 🔒 Security Notes
+
+⚠️ **For Development Only!**
+
+The seeder is designed for local development. In production:
+- Don't use default passwords
+- Don't run seeder on production database
+- Change all credentials
+- Use strong passwords
+- Follow security best practices
+
+---
+
+## 📚 Related Files
+
+- `src/database/seeds/seed.service.ts` - Main seeding logic
+- `src/database/seeds/seed.module.ts` - NestJS module
+- `src/database/seeds/seed.command.ts` - CLI command
+- `package.json` - Seed scripts
+
+---
+
+## 🎯 Next Steps
+
+1. **Run the seeder**: `npm run seed`
+2. **Start the backend**: `npm run start:dev`
+3. **Start the frontend**: `ng serve`
+4. **Login** with test credentials
+5. **Explore the app** with pre-populated data
+6. **Modify seeder** as needed for your testing scenarios
+
+---
+
+## ❓ FAQ
+
+### Q: Can I run the seeder multiple times?
+**A:** Yes, it clears old data each time and recreates it fresh.
+
+### Q: Does the seeder modify the schema?
+**A:** No, it only adds data. Schema is created by TypeORM on backend startup.
+
+### Q: Can I seed production data?
+**A:** Not recommended. Use only for development and testing.
+
+### Q: How do I add custom data?
+**A:** Edit `src/database/seeds/seed.service.ts` and modify the data arrays.
+
+### Q: Can I seed without clearing existing data?
+**A:** Yes, modify `clearDatabase()` method in seed.service.ts to comment out deletions.
+
+### Q: What if password hashing fails?
+**A:** Ensure `bcryptjs` is installed: `npm install bcryptjs`
+
+---
+
+## 🚀 Tips & Tricks
+
+### Seed Only Specific Data
+
+Comment out methods in `seed()` to seed only certain data:
+
+```typescript
+async seed() {
+  await this.clearDatabase();
+  const users = await this.createUsers();
+  // await this.createTasks(users);  // Skip tasks
+  // await this.createProjects(users);  // Skip projects
+  // await this.createEvents(users);  // Skip events
+}
+```
+
+### Add More Realistic Data
+
+Modify date calculations to create events spanning different time periods:
+
+```typescript
+// Create events for the next 30 days
+const futureDate = new Date(today.getTime() + Math.random() * 30 * 24 * 60 * 60 * 1000);
+```
+
+### Generate Test Data Programmatically
+
+Modify the data arrays to use loops:
+
+```typescript
+// Generate 50 tasks automatically
+for (let i = 0; i < 50; i++) {
+  tasksData.push({
+    title: `Task ${i + 1}`,
+    description: `Generated task ${i + 1}`,
+    status: ['pending', 'in-progress', 'completed'][i % 3],
+    priority: ['high', 'medium', 'low'][i % 3],
+    dueDate: new Date(today.getTime() + i * 24 * 60 * 60 * 1000),
+    userId: users[i % users.length].id,
+  });
+}
+```
+
+---
+
+**Last Updated:** 2026-06-23  
+**Version:** 1.0.0  
+**Status:** ✅ Ready to Use
+
+Happy seeding! 🌱
+</file>
+
+<file path="src/ai/ai.module.ts">
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { AiService } from './ai.service';
+
+@Module({
+  imports: [ConfigModule],
+  providers: [AiService],
+  exports: [AiService],
+})
+export class AiModule {}
+</file>
+
+<file path="src/ai/ai.service.ts">
+import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import OpenAI from 'openai';
+import { Priority } from 'src/common/enums/priority.enum';
+import { SentimentLabel } from 'src/common/enums/sentiment-label.enum';
+import { AnalyzeIssueResult, ResolutionSummaryResult } from './types/ai.types';
+
+type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
+type JsonObject = { [key: string]: JsonValue };
+
+@Injectable()
+export class AiService {
+  private readonly logger = new Logger(AiService.name);
+  private readonly client: OpenAI;
+  private readonly model: string;
+
+  constructor(private readonly configService: ConfigService) {
+    const apiKey = this.configService.get<string>('OPENAI_API_KEY', '');
+    if (!apiKey) {
+      throw new InternalServerErrorException('OPENAI_API_KEY is not configured');
+    }
+
+    this.client = new OpenAI({ apiKey });
+    this.model = this.configService.get<string>('OPENAI_MODEL', 'gpt-4o-mini');
+  }
+
+  async analyzeIssue(messages: string[]): Promise<AnalyzeIssueResult> {
+    const prompt = [
+      'You are SmartCX AI for Nigerian SME customer support triage.',
+      'Analyze the provided customer messages and return strict JSON only with this exact schema:',
+      '{"sentimentScore":number,"sentimentLabel":"positive|neutral|frustrated|angry","category":string,"priority":"low|medium|high|urgent","summary":string}',
+      'Rules:',
+      '- sentimentScore must be from -1.0 to 1.0',
+      '- category should be concise (e.g. Delivery, Refund, Product, Payment, Technical)',
+      '- priority should reflect urgency, customer impact, and escalation risk',
+      '- summary must be 1-2 short sentences',
+      '',
+      `messages: ${JSON.stringify(messages)}`,
+    ].join('\n');
+
+    const parsed = await this.generateJson(prompt);
+    return {
+      sentimentScore: this.toBoundedNumber(parsed.sentimentScore, -1, 1, 0),
+      sentimentLabel: this.toSentimentLabel(parsed.sentimentLabel),
+      category: this.toStringValue(parsed.category, 'General'),
+      priority: this.toPriority(parsed.priority),
+      summary: this.toStringValue(parsed.summary, 'No summary generated'),
+    };
+  }
+
+  async generateTicketDraft(conversation: string[], customerName: string): Promise<string> {
+    const prompt = [
+      'You are an expert support operations assistant drafting ticket descriptions.',
+      'Generate a clean, concise ticket draft from the conversation context.',
+      'Requirements:',
+      '- Include problem context, impact, and suggested next action.',
+      '- Keep it under 180 words.',
+      '- Keep tone professional and actionable.',
+      '',
+      `customerName: ${customerName}`,
+      `conversation: ${JSON.stringify(conversation)}`,
+    ].join('\n');
+
+    return this.generateText(prompt);
+  }
+
+  async generateInsightSummary(ticketContext: object): Promise<string> {
+    const prompt = [
+      'You are SmartCX AI assistant for ticket workspace insights.',
+      'Provide a short tactical insight summary for agents handling this ticket.',
+      'Include:',
+      '- likely root cause',
+      '- risk if delayed',
+      '- best next response strategy',
+      'Return plain text in 3-5 bullet points.',
+      '',
+      `ticketContext: ${JSON.stringify(ticketContext)}`,
+    ].join('\n');
+
+    return this.generateText(prompt);
+  }
+
+  async generateSmartReplies(context: string): Promise<string[]> {
+    const prompt = [
+      'You are generating smart support replies for agents.',
+      'Return strict JSON only with schema: {"replies": string[]}',
+      'Rules:',
+      '- Provide 3 concise reply options',
+      '- Keep each option under 35 words',
+      '- Professional and empathetic tone',
+      '- Avoid overpromising outcomes',
+      '',
+      `context: ${context}`,
+    ].join('\n');
+
+    const parsed = await this.generateJson(prompt);
+    const repliesRaw = parsed.replies;
+    if (!Array.isArray(repliesRaw)) {
+      return [];
+    }
+
+    return repliesRaw
+      .map((item) => (typeof item === 'string' ? item.trim() : ''))
+      .filter((item) => item.length > 0)
+      .slice(0, 3);
+  }
+
+  async generateResolutionSummary(
+    ticket: object,
+    messages: object[],
+  ): Promise<ResolutionSummaryResult> {
+    const prompt = [
+      'You are SmartCX AI and must produce a case closure summary.',
+      'Return strict JSON only with schema:',
+      '{"problem":string,"action":string,"sentimentShift":string}',
+      'Rules:',
+      '- problem: concise summary of customer issue',
+      '- action: key remediation steps taken',
+      '- sentimentShift: short phrase like "frustrated -> positive (78%)"',
+      '',
+      `ticket: ${JSON.stringify(ticket)}`,
+      `messages: ${JSON.stringify(messages)}`,
+    ].join('\n');
+
+    const parsed = await this.generateJson(prompt);
+    return {
+      problem: this.toStringValue(parsed.problem, 'Problem summary unavailable'),
+      action: this.toStringValue(parsed.action, 'Action summary unavailable'),
+      sentimentShift: this.toStringValue(parsed.sentimentShift, 'neutral -> neutral (0%)'),
+    };
+  }
+
+  private async generateText(prompt: string): Promise<string> {
+    try {
+      const response = await this.client.responses.create({
+        model: this.model,
+        input: prompt,
+        temperature: 0.2,
+      });
+
+      const output = response.output_text?.trim();
+      return output && output.length > 0 ? output : 'No content generated';
+    } catch (error) {
+      this.logger.error('OpenAI text generation failed', error instanceof Error ? error.stack : undefined);
+      throw new InternalServerErrorException('AI text generation failed');
+    }
+  }
+
+  private async generateJson(prompt: string): Promise<JsonObject> {
+    const text = await this.generateText(prompt);
+    try {
+      const parsed = JSON.parse(text) as JsonValue;
+      if (!this.isJsonObject(parsed)) {
+        throw new Error('AI output is not a JSON object');
+      }
+      return parsed;
+    } catch (error) {
+      this.logger.error('Failed to parse AI JSON output', error instanceof Error ? error.stack : undefined);
+      throw new InternalServerErrorException('AI output could not be parsed as JSON');
+    }
+  }
+
+  private isJsonObject(value: JsonValue): value is JsonObject {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+  }
+
+  private toStringValue(value: JsonValue | undefined, fallback: string): string {
+    return typeof value === 'string' && value.trim().length > 0 ? value.trim() : fallback;
+  }
+
+  private toBoundedNumber(
+    value: JsonValue | undefined,
+    min: number,
+    max: number,
+    fallback: number,
+  ): number {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
+      return fallback;
+    }
+    return Math.max(min, Math.min(max, value));
+  }
+
+  private toSentimentLabel(value: JsonValue | undefined): SentimentLabel {
+    const normalized = typeof value === 'string' ? value.toLowerCase().trim() : '';
+    if (normalized === SentimentLabel.POSITIVE) {
+      return SentimentLabel.POSITIVE;
+    }
+    if (normalized === SentimentLabel.FRUSTRATED) {
+      return SentimentLabel.FRUSTRATED;
+    }
+    if (normalized === SentimentLabel.ANGRY) {
+      return SentimentLabel.ANGRY;
+    }
+    return SentimentLabel.NEUTRAL;
+  }
+
+  private toPriority(value: JsonValue | undefined): Priority {
+    const normalized = typeof value === 'string' ? value.toLowerCase().trim() : '';
+    if (normalized === Priority.LOW) {
+      return Priority.LOW;
+    }
+    if (normalized === Priority.HIGH) {
+      return Priority.HIGH;
+    }
+    if (normalized === Priority.URGENT) {
+      return Priority.URGENT;
+    }
+    return Priority.MEDIUM;
+  }
+}
+</file>
+
+<file path="src/ai/types/ai.types.ts">
+import { Priority } from 'src/common/enums/priority.enum';
+import { SentimentLabel } from 'src/common/enums/sentiment-label.enum';
+
+export type AnalyzeIssueResult = {
+  sentimentScore: number;
+  sentimentLabel: SentimentLabel;
+  category: string;
+  priority: Priority;
+  summary: string;
+};
+
+export type ResolutionSummaryResult = {
+  problem: string;
+  action: string;
+  sentimentShift: string;
+};
+</file>
+
+<file path="src/analytics/analytics.controller.ts">
+import { Controller, Get, UseGuards, Request } from '@nestjs/common';
+import { AnalyticsService } from './analytics.service';
+import { JwtGuard } from '../auth/jwt.guard';
+
+@Controller('analytics')
+@UseGuards(JwtGuard)
+export class AnalyticsController {
+  constructor(private analyticsService: AnalyticsService) {}
+
+  @Get('productivity')
+  async getProductivityMetrics(@Request() req) {
+    return this.analyticsService.getProductivityMetrics(req.user.id);
+  }
+
+  @Get('summary')
+  async getSummary(@Request() req) {
+    return this.analyticsService.getSummary(req.user.id);
+  }
+}
+</file>
+
+<file path="src/analytics/analytics.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AnalyticsController } from './analytics.controller';
+import { AnalyticsService } from './analytics.service';
+import { Task } from '../entities';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Task])],
+  controllers: [AnalyticsController],
+  providers: [AnalyticsService],
+  exports: [AnalyticsService],
+})
+export class AnalyticsModule {}
+</file>
+
+<file path="src/analytics/analytics.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Task } from '../entities';
+
+@Injectable()
+export class AnalyticsService {
+  constructor(
+    @InjectRepository(Task)
+    private taskRepository: Repository<Task>,
+  ) {}
+
+  async getProductivityMetrics(userId: string) {
+    const tasks = await this.taskRepository.find({
+      where: { userId },
+    });
+
+    const completedTasks = tasks.filter((t) => t.status === 'completed');
+    const totalTasks = tasks.length;
+
+    // Calculate overall progress
+    const overallProgress = totalTasks > 0 ? Math.round((completedTasks.length / totalTasks) * 100) : 0;
+
+    // Calculate weekly data (mock for now - can be enhanced with real date logic)
+    const weeklyData = this.generateWeeklyData(tasks);
+
+    // Calculate streak (mock for now)
+    const streak = this.calculateStreak(completedTasks);
+
+    // Calculate weekly improvement (mock)
+    const weeklyImprovement = Math.floor(Math.random() * 20) + 5;
+
+    // Get today's completion
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todaysCompletedTasks = completedTasks.filter((t) => {
+      const taskDate = new Date(t.updatedAt);
+      taskDate.setHours(0, 0, 0, 0);
+      return taskDate.getTime() === today.getTime();
+    }).length;
+
+    return {
+      overallProgress,
+      completedTasks: completedTasks.length,
+      totalTasks,
+      streak,
+      weeklyImprovement,
+      weeklyData,
+      todaysCompletedTasks,
+      achievement: overallProgress >= 70 ? 'Deep Work Master' : 'Productive Contributor',
+      categoryBreakdown: {
+        work: 64,
+        personalDevelopment: 22,
+        health: 14,
+      },
+    };
+  }
+
+  async getSummary(userId: string) {
+    const tasks = await this.taskRepository.find({
+      where: { userId },
+    });
+
+    const completedTasks = tasks.filter((t) => t.status === 'completed');
+    const pendingTasks = tasks.filter((t) => t.status === 'pending');
+    const inProgressTasks = tasks.filter((t) => t.status === 'in-progress');
+
+    return {
+      totalTasks: tasks.length,
+      completedTasks: completedTasks.length,
+      pendingTasks: pendingTasks.length,
+      inProgressTasks: inProgressTasks.length,
+      completionRate: tasks.length > 0 ? Math.round((completedTasks.length / tasks.length) * 100) : 0,
+    };
+  }
+
+  private generateWeeklyData(tasks: Task[]): number[] {
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const data: number[] = [];
+
+    for (let i = 0; i < days.length; i++) {
+      // Generate mock data (can be enhanced with real calculations)
+      data.push(Math.floor(Math.random() * 30) + 60);
+    }
+
+    return data;
+  }
+
+  private calculateStreak(completedTasks: Task[]): number {
+    // Mock streak calculation
+    return Math.floor(Math.random() * 15) + 1;
+  }
+}
+</file>
+
+<file path="src/app.controller.spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+describe('AppController', () => {
+  let appController: AppController;
+
+  beforeEach(async () => {
+    const app: TestingModule = await Test.createTestingModule({
+      controllers: [AppController],
+      providers: [AppService],
+    }).compile();
+
+    appController = app.get<AppController>(AppController);
+  });
+
+  describe('root', () => {
+    it('should return "Hello World!"', () => {
+      expect(appController.getHello()).toBe('Hello World!');
+    });
+  });
+});
+</file>
+
+<file path="src/app.controller.ts">
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+}
+</file>
+
+<file path="src/app.service.ts">
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Hello World!';
+  }
+}
+</file>
+
+<file path="src/auth/auth.controller.ts">
+import { Body, Controller, Post } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { Public } from './decorators/public.decorator';
+import { AuthService } from './auth.service';
+import { AuthResponseDto } from './dto/auth-response.dto';
+import { LoginDto } from './dto/login.dto';
+import { RegisterAuthDto } from './dto/register-auth.dto';
+
+@ApiTags('Auth')
+@ApiBearerAuth()
+@Controller('auth')
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  @Public()
+  @Post('login')
+  @ApiOperation({ summary: 'Authenticate user and return JWT token' })
+  @ApiResponse({ status: 200, type: AuthResponseDto })
+  async login(@Body() dto: LoginDto): Promise<AuthResponseDto> {
+    return this.authService.login(dto);
+  }
+
+  @Post('register')
+  @ApiOperation({ summary: 'Register business and owner account (auth alias)' })
+  @ApiResponse({ status: 201, type: AuthResponseDto })
+  async register(@Body() dto: RegisterAuthDto): Promise<AuthResponseDto> {
+    return this.authService.registerBusiness(dto);
+  }
+}
+</file>
+
+<file path="src/auth/auth.dto.ts">
+import { IsEmail, IsNotEmpty, MinLength, IsIn } from 'class-validator';
+
+export class SignUpDto {
+  @IsNotEmpty()
+  fullName: string;
+
+  @IsEmail()
+  email: string;
+
+  @IsNotEmpty()
+  @MinLength(6)
+  password: string;
+
+  @IsIn(['Manager', 'Freelancer'])
+  persona: string;
+}
+
+export class LoginDto {
+  @IsEmail()
+  email: string;
+
+  @IsNotEmpty()
+  password: string;
+}
+</file>
+
+<file path="src/auth/auth.module.ts">
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
+import { StringValue } from 'ms';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Business } from 'src/common/entities/business.entity';
+import { User } from 'src/common/entities/user.entity';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { JwtStrategy } from './strategies/jwt.strategy';
+
+@Module({
+  imports: [
+    ConfigModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET', 'change_me'),
+        signOptions: {
+          expiresIn: configService.get<string>('JWT_EXPIRES_IN', '1d') as StringValue,
+        },
+      }),
+    }),
+    TypeOrmModule.forFeature([Business, User]),
+  ],
+  controllers: [AuthController],
+  providers: [AuthService, JwtStrategy],
+  exports: [AuthService, JwtStrategy],
+})
+export class AuthModule {}
+</file>
+
+<file path="src/auth/auth.service.ts">
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as bcrypt from 'bcryptjs';
+import { StringValue } from 'ms';
+import { Repository } from 'typeorm';
+import { Business } from 'src/common/entities/business.entity';
+import { User } from 'src/common/entities/user.entity';
+import { UserRole } from 'src/common/enums/user-role.enum';
+import { AuthResponseDto } from './dto/auth-response.dto';
+import { LoginDto } from './dto/login.dto';
+import { RegisterAuthDto } from './dto/register-auth.dto';
+
+@Injectable()
+export class AuthService {
+  constructor(
+    @InjectRepository(Business)
+    private readonly businessRepository: Repository<Business>,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+    private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
+  ) {}
+
+  async registerBusiness(input: RegisterAuthDto): Promise<AuthResponseDto> {
+    const existingBusiness = await this.businessRepository.findOne({
+      where: { email: input.email.toLowerCase() },
+    });
+
+    if (existingBusiness) {
+      throw new ConflictException('Business with this email already exists');
+    }
+
+    const passwordHash = await bcrypt.hash(input.password, 12);
+
+    const business = this.businessRepository.create({
+      businessName: input.businessName,
+      ownerName: input.ownerName,
+      email: input.email.toLowerCase(),
+      phone: input.phone,
+      category: input.category,
+      passwordHash,
+      isActive: true,
+      logoUrl: null,
+    });
+
+    const savedBusiness = await this.businessRepository.save(business);
+    const [firstName, ...remaining] = input.ownerName.trim().split(' ');
+
+    const ownerUser = this.userRepository.create({
+      businessId: savedBusiness.id,
+      firstName,
+      lastName: remaining.join(' ') || 'Owner',
+      email: input.email.toLowerCase(),
+      passwordHash,
+      role: UserRole.SUPER_ADMIN,
+      isOnline: false,
+      lastSeenAt: null,
+    });
+
+    const savedOwner = await this.userRepository.save(ownerUser);
+    return this.buildAuthResponse(savedOwner.id, savedBusiness.id, savedOwner.email, savedOwner.role);
+  }
+
+  async login(input: LoginDto): Promise<AuthResponseDto> {
+    const user = await this.userRepository.findOne({
+      where: { email: input.email.toLowerCase() },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const business = await this.businessRepository.findOne({
+      where: { id: user.businessId, isActive: true },
+    });
+
+    if (!business) {
+      throw new UnauthorizedException('Business is inactive or not found');
+    }
+
+    const isPasswordValid = await bcrypt.compare(input.password, user.passwordHash);
+    if (!isPasswordValid) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    return this.buildAuthResponse(user.id, user.businessId, user.email, user.role);
+  }
+
+  private buildAuthResponse(
+    userId: string,
+    businessId: string,
+    email: string,
+    role: UserRole,
+  ): AuthResponseDto {
+    const payload = {
+      sub: userId,
+      userId,
+      businessId,
+      email,
+      role,
+    };
+
+    const expiresIn = this.configService.get<string>('JWT_EXPIRES_IN', '1d');
+    const accessToken = this.jwtService.sign(payload, {
+      expiresIn: expiresIn as StringValue,
+      secret: this.configService.get<string>('JWT_SECRET', 'change_me'),
+    });
+
+    return {
+      accessToken,
+      expiresIn,
+      user: {
+        id: userId,
+        businessId,
+        email,
+        role,
+      },
+    };
+  }
+}
+</file>
+
+<file path="src/auth/decorators/current-user.decorator.ts">
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { AuthenticatedUser } from '../types/authenticated-user.type';
+
+export const CurrentUser = createParamDecorator(
+  (_data: unknown, context: ExecutionContext): AuthenticatedUser => {
+    const request = context.switchToHttp().getRequest<{ user: AuthenticatedUser }>();
+    return request.user;
+  },
+);
+</file>
+
+<file path="src/auth/decorators/public.decorator.ts">
+import { SetMetadata } from '@nestjs/common';
+
+export const IS_PUBLIC_KEY = 'isPublic';
+export const Public = (): ReturnType<typeof SetMetadata> => SetMetadata(IS_PUBLIC_KEY, true);
+</file>
+
+<file path="src/auth/decorators/roles.decorator.ts">
+import { SetMetadata } from '@nestjs/common';
+import { UserRole } from 'src/common/enums/user-role.enum';
+
+export const ROLES_KEY = 'roles';
+export const Roles = (...roles: UserRole[]): ReturnType<typeof SetMetadata> =>
+  SetMetadata(ROLES_KEY, roles);
+</file>
+
+<file path="src/auth/dto/auth-response.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { UserRole } from 'src/common/enums/user-role.enum';
+
+export class AuthResponseDto {
+  @ApiProperty()
+  accessToken!: string;
+
+  @ApiProperty({ example: '1d' })
+  expiresIn!: string;
+
+  @ApiProperty()
+  user!: {
+    id: string;
+    businessId: string;
+    email: string;
+    role: UserRole;
+  };
+}
+</file>
+
+<file path="src/auth/dto/login.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+
+export class LoginDto {
+  @ApiProperty({ example: 'owner@smartcx.ai' })
+  @IsString()
+  @IsNotEmpty()
+  email!: string;
+
+  @ApiProperty({ example: 'StrongPassword@123' })
+  @IsString()
+  @MinLength(8)
+  password!: string;
+}
+</file>
+
+<file path="src/auth/dto/register-auth.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
+
+export class RegisterAuthDto {
+  @ApiProperty({ example: 'Riverside Retail' })
+  @IsString()
+  @IsNotEmpty()
+  businessName!: string;
+
+  @ApiProperty({ example: 'Ada Okafor' })
+  @IsString()
+  @IsNotEmpty()
+  ownerName!: string;
+
+  @ApiProperty({ example: '+2348012345678' })
+  @IsString()
+  @IsNotEmpty()
+  phone!: string;
+
+  @ApiProperty({ example: 'Retail' })
+  @IsString()
+  @IsNotEmpty()
+  category!: string;
+
+  @ApiProperty({ example: 'owner@riversideretail.ng' })
+  @IsEmail()
+  email!: string;
+
+  @ApiProperty({ example: 'StrongPassword@123' })
+  @IsString()
+  @MinLength(8)
+  password!: string;
+}
+</file>
+
+<file path="src/auth/guards/jwt-auth.guard.ts">
+import { ExecutionContext, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+import { AuthGuard } from '@nestjs/passport';
+import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
+
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {
+  constructor(private readonly reflector: Reflector) {
+    super();
+  }
+
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> {
+    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+
+    if (isPublic) {
+      return true;
+    }
+
+    return super.canActivate(context) as boolean | Promise<boolean>;
+  }
+}
+</file>
+
+<file path="src/auth/guards/roles.guard.ts">
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+import { UserRole } from 'src/common/enums/user-role.enum';
+import { ROLES_KEY } from '../decorators/roles.decorator';
+import { AuthenticatedUser } from '../types/authenticated-user.type';
+
+@Injectable()
+export class RolesGuard implements CanActivate {
+  constructor(private readonly reflector: Reflector) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const requiredRoles = this.reflector.getAllAndOverride<UserRole[]>(ROLES_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+
+    if (!requiredRoles || requiredRoles.length === 0) {
+      return true;
+    }
+
+    const request = context.switchToHttp().getRequest<{ user: AuthenticatedUser }>();
+    return requiredRoles.includes(request.user.role);
+  }
+}
+</file>
+
+<file path="src/auth/jwt.guard.ts">
+import { Injectable } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+
+@Injectable()
+export class JwtGuard extends AuthGuard('jwt') {}
+</file>
+
+<file path="src/auth/jwt.strategy.ts">
+import { Injectable } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
+import { ExtractJwt, Strategy } from 'passport-jwt';
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor() {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+      secretOrKey: process.env.JWT_SECRET || 'your-secret-key',
+    });
+  }
+
+  async validate(payload: any) {
+    return { id: payload.id, email: payload.email };
+  }
+}
+</file>
+
+<file path="src/auth/strategies/jwt.strategy.ts">
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { PassportStrategy } from '@nestjs/passport';
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { UserRole } from 'src/common/enums/user-role.enum';
+import { AuthenticatedUser } from '../types/authenticated-user.type';
+
+type JwtPayload = {
+  sub: string;
+  userId: string;
+  businessId: string;
+  email: string;
+  role: UserRole;
+};
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(configService: ConfigService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+      secretOrKey: configService.get<string>('JWT_SECRET', 'change_me'),
+    });
+  }
+
+  validate(payload: JwtPayload): AuthenticatedUser {
+    return {
+      sub: payload.sub,
+      userId: payload.userId,
+      businessId: payload.businessId,
+      email: payload.email,
+      role: payload.role,
+    };
+  }
+}
+</file>
+
+<file path="src/auth/types/authenticated-user.type.ts">
+import { UserRole } from 'src/common/enums/user-role.enum';
+
+export type AuthenticatedUser = {
+  sub: string;
+  userId: string;
+  businessId: string;
+  email: string;
+  role: UserRole;
+};
+</file>
+
+<file path="src/business/business.controller.ts">
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { Public } from 'src/auth/decorators/public.decorator';
+import { AuthResponseDto } from 'src/auth/dto/auth-response.dto';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { BusinessProfileResponse, BusinessService } from './business.service';
+import { RegisterBusinessDto } from './dto/register-business.dto';
+
+@ApiTags('Business')
+@ApiBearerAuth()
+@Controller('business')
+export class BusinessController {
+  constructor(private readonly businessService: BusinessService) {}
+
+  @Public()
+  @Post('register')
+  @ApiOperation({ summary: 'Register a new business tenant account' })
+  @ApiResponse({ status: 201, type: AuthResponseDto })
+  async register(@Body() dto: RegisterBusinessDto): Promise<AuthResponseDto> {
+    return this.businessService.register(dto);
+  }
+
+  @Get('me')
+  @ApiOperation({ summary: 'Get current business profile from JWT scope' })
+  @ApiResponse({ status: 200 })
+  async me(@CurrentUser() user: AuthenticatedUser): Promise<BusinessProfileResponse> {
+    return this.businessService.getBusinessProfile(user.businessId);
+  }
+}
+</file>
+
+<file path="src/business/business.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from 'src/auth/auth.module';
+import { Business } from 'src/common/entities/business.entity';
+import { BusinessController } from './business.controller';
+import { BusinessService } from './business.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Business]), AuthModule],
+  controllers: [BusinessController],
+  providers: [BusinessService],
+})
+export class BusinessModule {}
+</file>
+
+<file path="src/business/business.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { AuthService } from 'src/auth/auth.service';
+import { AuthResponseDto } from 'src/auth/dto/auth-response.dto';
+import { Business } from 'src/common/entities/business.entity';
+import { RegisterBusinessDto } from './dto/register-business.dto';
+
+export type BusinessProfileResponse = {
+  id: string;
+  businessName: string;
+  ownerName: string;
+  email: string;
+  phone: string;
+  category: string;
+  logoUrl: string | null;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+@Injectable()
+export class BusinessService {
+  constructor(
+    @InjectRepository(Business)
+    private readonly businessRepository: Repository<Business>,
+    private readonly authService: AuthService,
+  ) {}
+
+  async register(input: RegisterBusinessDto): Promise<AuthResponseDto> {
+    return this.authService.registerBusiness(input);
+  }
+
+  async getBusinessProfile(businessId: string): Promise<BusinessProfileResponse> {
+    const business = await this.businessRepository.findOne({
+      where: { id: businessId, isActive: true },
+    });
+
+    if (!business) {
+      throw new NotFoundException('Business not found');
+    }
+
+    return {
+      id: business.id,
+      businessName: business.businessName,
+      ownerName: business.ownerName,
+      email: business.email,
+      phone: business.phone,
+      category: business.category,
+      logoUrl: business.logoUrl,
+      isActive: business.isActive,
+      createdAt: business.createdAt,
+      updatedAt: business.updatedAt,
+    };
+  }
+}
+</file>
+
+<file path="src/business/dto/register-business.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
+
+export class RegisterBusinessDto {
+  @ApiProperty({ example: 'Riverside Retail' })
+  @IsString()
+  @IsNotEmpty()
+  businessName!: string;
+
+  @ApiProperty({ example: 'Ada Okafor' })
+  @IsString()
+  @IsNotEmpty()
+  ownerName!: string;
+
+  @ApiProperty({ example: '+2348012345678' })
+  @IsString()
+  @IsNotEmpty()
+  phone!: string;
+
+  @ApiProperty({ example: 'Retail' })
+  @IsString()
+  @IsNotEmpty()
+  category!: string;
+
+  @ApiProperty({ example: 'owner@riversideretail.ng' })
+  @IsEmail()
+  email!: string;
+
+  @ApiProperty({ example: 'StrongPassword@123' })
+  @IsString()
+  @MinLength(8)
+  password!: string;
+}
+</file>
+
+<file path="src/channels/channels.controller.ts">
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { Channel } from 'src/common/entities/channel.entity';
+import { ConnectChannelDto } from './dto/connect-channel.dto';
+import { ChannelsService } from './channels.service';
+
+@ApiTags('Channels')
+@ApiBearerAuth()
+@Controller('channels')
+export class ChannelsController {
+  constructor(private readonly channelsService: ChannelsService) {}
+
+  @Get()
+  @ApiOperation({ summary: 'List connected channels for current business' })
+  @ApiResponse({ status: 200, type: [Channel] })
+  async list(@CurrentUser() user: AuthenticatedUser): Promise<Channel[]> {
+    return this.channelsService.list(user.businessId);
+  }
+
+  @Post('connect')
+  @ApiOperation({ summary: 'Connect or update a channel for current business' })
+  @ApiResponse({ status: 201, type: Channel })
+  async connect(
+    @CurrentUser() user: AuthenticatedUser,
+    @Body() dto: ConnectChannelDto,
+  ): Promise<Channel> {
+    return this.channelsService.connect(user.businessId, dto);
+  }
+}
+</file>
+
+<file path="src/channels/channels.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Channel } from 'src/common/entities/channel.entity';
+import { ChannelsController } from './channels.controller';
+import { ChannelsService } from './channels.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Channel])],
+  controllers: [ChannelsController],
+  providers: [ChannelsService],
+})
+export class ChannelsModule {}
+</file>
+
+<file path="src/channels/channels.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Channel } from 'src/common/entities/channel.entity';
+import { ConnectChannelDto } from './dto/connect-channel.dto';
+
+@Injectable()
+export class ChannelsService {
+  constructor(
+    @InjectRepository(Channel)
+    private readonly channelRepository: Repository<Channel>,
+  ) {}
+
+  async list(businessId: string): Promise<Channel[]> {
+    return this.channelRepository.find({
+      where: { businessId },
+      order: { createdAt: 'DESC' },
+    });
+  }
+
+  async connect(businessId: string, input: ConnectChannelDto): Promise<Channel> {
+    const existing = await this.channelRepository.findOne({
+      where: { businessId, type: input.type },
+    });
+
+    if (existing) {
+      existing.credentials = input.credentials;
+      existing.isConnected = true;
+      existing.connectedAt = new Date();
+      return this.channelRepository.save(existing);
+    }
+
+    const channel = this.channelRepository.create({
+      businessId,
+      type: input.type,
+      credentials: input.credentials,
+      isConnected: true,
+      connectedAt: new Date(),
+    });
+    return this.channelRepository.save(channel);
+  }
+}
+</file>
+
+<file path="src/channels/dto/connect-channel.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsNotEmpty, IsObject } from 'class-validator';
+import { ChannelType } from 'src/common/enums/channel-type.enum';
+
+export class ConnectChannelDto {
+  @ApiProperty({ enum: ChannelType })
+  @IsEnum(ChannelType)
+  type!: ChannelType;
+
+  @ApiProperty({ type: 'object', additionalProperties: { type: 'string' } })
+  @IsObject()
+  @IsNotEmpty()
+  credentials!: Record<string, string>;
+}
+</file>
+
+<file path="src/common/entities/audit-log.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Business } from './business.entity';
+import { User } from './user.entity';
+
+@Entity({ name: 'audit_logs' })
+export class AuditLog {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({ type: 'uuid', nullable: true })
+  actorId!: string | null;
+
+  @Column({ type: 'varchar', length: 160 })
+  action!: string;
+
+  @Column({ type: 'varchar', length: 120 })
+  entityType!: string;
+
+  @Column({ type: 'varchar', length: 120 })
+  entityId!: string;
+
+  @Column({ type: 'jsonb', nullable: true })
+  beforeData!: Record<string, unknown> | null;
+
+  @Column({ type: 'jsonb', nullable: true })
+  afterData!: Record<string, unknown> | null;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.auditLogs, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+
+  @ManyToOne(() => User, (user) => user.actions, {
+    onDelete: 'SET NULL',
+    nullable: true,
+  })
+  @JoinColumn({ name: 'actorId' })
+  actor!: User | null;
+}
+</file>
+
+<file path="src/common/entities/business.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { AuditLog } from './audit-log.entity';
+import { Channel } from './channel.entity';
+import { Customer } from './customer.entity';
+import { Issue } from './issue.entity';
+import { Ticket } from './ticket.entity';
+import { User } from './user.entity';
+
+@Entity({ name: 'businesses' })
+export class Business {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'varchar', length: 180 })
+  businessName!: string;
+
+  @Column({ type: 'varchar', length: 150 })
+  ownerName!: string;
+
+  @Column({ type: 'varchar', length: 180, unique: true })
+  email!: string;
+
+  @Column({ type: 'varchar', length: 20 })
+  phone!: string;
+
+  @Column({ type: 'varchar', length: 100 })
+  category!: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  passwordHash!: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  logoUrl!: string | null;
+
+  @Column({ type: 'boolean', default: true })
+  isActive!: boolean;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
+
+  @OneToMany(() => User, (user) => user.business)
+  users!: User[];
+
+  @OneToMany(() => Channel, (channel) => channel.business)
+  channels!: Channel[];
+
+  @OneToMany(() => Customer, (customer) => customer.business)
+  customers!: Customer[];
+
+  @OneToMany(() => Issue, (issue) => issue.business)
+  issues!: Issue[];
+
+  @OneToMany(() => Ticket, (ticket) => ticket.business)
+  tickets!: Ticket[];
+
+  @OneToMany(() => AuditLog, (auditLog) => auditLog.business)
+  auditLogs!: AuditLog[];
+}
+</file>
+
+<file path="src/common/entities/channel.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { ChannelType } from '../enums/channel-type.enum';
+import { Business } from './business.entity';
+
+@Entity({ name: 'channels' })
+export class Channel {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({
+    type: 'enum',
+    enum: ChannelType,
+  })
+  type!: ChannelType;
+
+  @Column({ type: 'jsonb', default: () => "'{}'" })
+  credentials!: Record<string, string>;
+
+  @Column({ type: 'boolean', default: false })
+  isConnected!: boolean;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  connectedAt!: Date | null;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.channels, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+}
+</file>
+
+<file path="src/common/entities/customer.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { ChannelType } from '../enums/channel-type.enum';
+import { CustomerStatus } from '../enums/customer-status.enum';
+import { Business } from './business.entity';
+import { Issue } from './issue.entity';
+import { Ticket } from './ticket.entity';
+
+const decimalToNumberTransformer = {
+  to: (value: number): string => value.toString(),
+  from: (value: string): number => Number(value),
+};
+
+@Entity({ name: 'customers' })
+@Index('IDX_customers_business_email', ['businessId', 'email'])
+@Index('IDX_customers_business_phone', ['businessId', 'phone'])
+export class Customer {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({ type: 'varchar', length: 160 })
+  name!: string;
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  phone!: string | null;
+
+  @Column({ type: 'varchar', length: 180, nullable: true })
+  email!: string | null;
+
+  @Column({
+    type: 'enum',
+    enum: ChannelType,
+  })
+  channel!: ChannelType;
+
+  @Column({
+    type: 'decimal',
+    precision: 12,
+    scale: 2,
+    default: 0,
+    transformer: decimalToNumberTransformer,
+  })
+  totalSpent!: number;
+
+  @Column({ type: 'varchar', length: 120, nullable: true })
+  location!: string | null;
+
+  @Column({
+    type: 'enum',
+    enum: CustomerStatus,
+    default: CustomerStatus.NEW,
+  })
+  status!: CustomerStatus;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.customers, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+
+  @OneToMany(() => Issue, (issue) => issue.customer)
+  issues!: Issue[];
+
+  @OneToMany(() => Ticket, (ticket) => ticket.customer)
+  tickets!: Ticket[];
+}
+</file>
+
+<file path="src/common/entities/index.ts">
+export * from './audit-log.entity';
+export * from './business.entity';
+export * from './channel.entity';
+export * from './customer.entity';
+export * from './issue.entity';
+export * from './message.entity';
+export * from './ticket.entity';
+export * from './user.entity';
+</file>
+
+<file path="src/common/entities/issue.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { ChannelType } from '../enums/channel-type.enum';
+import { IssueStatus } from '../enums/issue-status.enum';
+import { Priority } from '../enums/priority.enum';
+import { SentimentLabel } from '../enums/sentiment-label.enum';
+import { Business } from './business.entity';
+import { Customer } from './customer.entity';
+import { Ticket } from './ticket.entity';
+
+@Entity({ name: 'issues' })
+@Index('IDX_issues_business_status_priority', ['businessId', 'status', 'priority'])
+export class Issue {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({ type: 'uuid' })
+  customerId!: string;
+
+  @Column({
+    type: 'enum',
+    enum: ChannelType,
+  })
+  channelType!: ChannelType;
+
+  @Column({ type: 'text' })
+  messagePreview!: string;
+
+  @Column({ type: 'jsonb', default: () => "'[]'" })
+  rawMessages!: Array<Record<string, unknown>>;
+
+  @Column({ type: 'float', default: 0 })
+  sentimentScore!: number;
+
+  @Column({
+    type: 'enum',
+    enum: SentimentLabel,
+    default: SentimentLabel.NEUTRAL,
+  })
+  sentimentLabel!: SentimentLabel;
+
+  @Column({ type: 'varchar', length: 120 })
+  category!: string;
+
+  @Column({
+    type: 'enum',
+    enum: Priority,
+    default: Priority.MEDIUM,
+  })
+  priority!: Priority;
+
+  @Column({
+    type: 'enum',
+    enum: IssueStatus,
+    default: IssueStatus.NEW,
+  })
+  status!: IssueStatus;
+
+  @Column({ type: 'text' })
+  aiAnalysisSummary!: string;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.issues, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+
+  @ManyToOne(() => Customer, (customer) => customer.issues, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'customerId' })
+  customer!: Customer;
+
+  @OneToMany(() => Ticket, (ticket) => ticket.issue)
+  tickets!: Ticket[];
+}
+</file>
+
+<file path="src/common/entities/message.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { MessageSenderType } from '../enums/message-sender-type.enum';
+import { Ticket } from './ticket.entity';
+
+@Entity({ name: 'messages' })
+export class Message {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  ticketId!: string;
+
+  @Column({ type: 'varchar', length: 64 })
+  senderId!: string;
+
+  @Column({
+    type: 'enum',
+    enum: MessageSenderType,
+  })
+  senderType!: MessageSenderType;
+
+  @Column({ type: 'text' })
+  content!: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  attachmentUrl!: string | null;
+
+  @Column({ type: 'boolean', default: false })
+  isInternalNote!: boolean;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @ManyToOne(() => Ticket, (ticket) => ticket.messages, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'ticketId' })
+  ticket!: Ticket;
+}
+</file>
+
+<file path="src/common/entities/ticket.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Priority } from '../enums/priority.enum';
+import { TicketStatus } from '../enums/ticket-status.enum';
+import { Business } from './business.entity';
+import { Customer } from './customer.entity';
+import { Issue } from './issue.entity';
+import { Message } from './message.entity';
+import { User } from './user.entity';
+
+@Entity({ name: 'tickets' })
+@Index('UQ_tickets_ticket_number', ['ticketNumber'], { unique: true })
+@Index('IDX_tickets_business_status_priority', ['businessId', 'status', 'priority'])
+export class Ticket {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({ type: 'uuid' })
+  issueId!: string;
+
+  @Column({ type: 'uuid' })
+  customerId!: string;
+
+  @Column({ type: 'varchar', length: 40 })
+  ticketNumber!: string;
+
+  @Column({ type: 'varchar', length: 180 })
+  title!: string;
+
+  @Column({ type: 'varchar', length: 120 })
+  category!: string;
+
+  @Column({
+    type: 'enum',
+    enum: Priority,
+    default: Priority.MEDIUM,
+  })
+  priority!: Priority;
+
+  @Column({
+    type: 'enum',
+    enum: TicketStatus,
+    default: TicketStatus.OPEN,
+  })
+  status!: TicketStatus;
+
+  @Column({ type: 'uuid', nullable: true })
+  assignedAgentId!: string | null;
+
+  @Column({ type: 'text' })
+  aiDraftSummary!: string;
+
+  @Column({ type: 'text' })
+  aiInsightSummary!: string;
+
+  @Column({ type: 'text', array: true, default: () => "'{}'" })
+  internalNotes!: string[];
+
+  @Column({ type: 'timestamptz', nullable: true })
+  resolvedAt!: Date | null;
+
+  @Column({ type: 'text', nullable: true })
+  resolutionSummary!: string | null;
+
+  @Column({ type: 'varchar', length: 80, nullable: true })
+  sentimentShiftStart!: string | null;
+
+  @Column({ type: 'varchar', length: 80, nullable: true })
+  sentimentShiftEnd!: string | null;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.tickets, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+
+  @ManyToOne(() => Issue, (issue) => issue.tickets, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'issueId' })
+  issue!: Issue;
+
+  @ManyToOne(() => Customer, (customer) => customer.tickets, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'customerId' })
+  customer!: Customer;
+
+  @ManyToOne(() => User, (user) => user.assignedTickets, {
+    onDelete: 'SET NULL',
+    nullable: true,
+  })
+  @JoinColumn({ name: 'assignedAgentId' })
+  assignedAgent!: User | null;
+
+  @OneToMany(() => Message, (message) => message.ticket)
+  messages!: Message[];
+}
+</file>
+
+<file path="src/common/entities/user.entity.ts">
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { UserRole } from '../enums/user-role.enum';
+import { AuditLog } from './audit-log.entity';
+import { Business } from './business.entity';
+import { Ticket } from './ticket.entity';
+
+@Entity({ name: 'users' })
+@Index('IDX_users_business_email', ['businessId', 'email'], { unique: true })
+export class User {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column({ type: 'uuid' })
+  businessId!: string;
+
+  @Column({ type: 'varchar', length: 100 })
+  firstName!: string;
+
+  @Column({ type: 'varchar', length: 100 })
+  lastName!: string;
+
+  @Column({ type: 'varchar', length: 180 })
+  email!: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  passwordHash!: string;
+
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.AGENT,
+  })
+  role!: UserRole;
+
+  @Column({ type: 'boolean', default: false })
+  isOnline!: boolean;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  lastSeenAt!: Date | null;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
+
+  @ManyToOne(() => Business, (business) => business.users, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'businessId' })
+  business!: Business;
+
+  @OneToMany(() => Ticket, (ticket) => ticket.assignedAgent)
+  assignedTickets!: Ticket[];
+
+  @OneToMany(() => AuditLog, (auditLog) => auditLog.actor)
+  actions!: AuditLog[];
+}
+</file>
+
+<file path="src/common/enums/channel-type.enum.ts">
+export enum ChannelType {
+  WHATSAPP = 'whatsapp',
+  INSTAGRAM = 'instagram',
+  EMAIL = 'email',
+}
+</file>
+
+<file path="src/common/enums/customer-status.enum.ts">
+export enum CustomerStatus {
+  NEW = 'new',
+  RETURNING = 'returning',
+  VIP = 'vip',
+}
+</file>
+
+<file path="src/common/enums/index.ts">
+export * from './channel-type.enum';
+export * from './customer-status.enum';
+export * from './issue-status.enum';
+export * from './message-sender-type.enum';
+export * from './priority.enum';
+export * from './sentiment-label.enum';
+export * from './ticket-status.enum';
+export * from './user-role.enum';
+</file>
+
+<file path="src/common/enums/issue-status.enum.ts">
+export enum IssueStatus {
+  NEW = 'new',
+  PENDING = 'pending',
+  CONVERTED = 'converted',
+  CLOSED = 'closed',
+}
+</file>
+
+<file path="src/common/enums/message-sender-type.enum.ts">
+export enum MessageSenderType {
+  CUSTOMER = 'customer',
+  AGENT = 'agent',
+  AI_BOT = 'ai_bot',
+}
+</file>
+
+<file path="src/common/enums/priority.enum.ts">
+export enum Priority {
+  LOW = 'low',
+  MEDIUM = 'medium',
+  HIGH = 'high',
+  URGENT = 'urgent',
+}
+</file>
+
+<file path="src/common/enums/sentiment-label.enum.ts">
+export enum SentimentLabel {
+  POSITIVE = 'positive',
+  NEUTRAL = 'neutral',
+  FRUSTRATED = 'frustrated',
+  ANGRY = 'angry',
+}
+</file>
+
+<file path="src/common/enums/ticket-status.enum.ts">
+export enum TicketStatus {
+  OPEN = 'open',
+  PENDING = 'pending',
+  ESCALATED = 'escalated',
+  RESOLVED = 'resolved',
+}
+</file>
+
+<file path="src/common/enums/user-role.enum.ts">
+export enum UserRole {
+  SUPER_ADMIN = 'super_admin',
+  ADMIN = 'admin',
+  AGENT = 'agent',
+}
+</file>
+
+<file path="src/common/interceptors/audit.interceptor.ts">
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+@Injectable()
+export class AuditInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const request = context.switchToHttp().getRequest<{ method: string; url: string }>();
+    const startedAt = Date.now();
+
+    return next.handle().pipe(
+      tap(() => {
+        const durationMs = Date.now() - startedAt;
+        void durationMs;
+        void request;
+      }),
+    );
+  }
+}
+</file>
+
+<file path="src/config/typeorm.config.ts">
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { User, Task, Project, Event } from '../entities';
+
+export const typeOrmConfig: TypeOrmModuleOptions = {
+  type: 'postgres',
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT || '5432'),
+  username: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'Agnes123.',
+  database: process.env.DB_NAME,
+  entities: [User, Task, Project, Event],
+  synchronize: true,
+  logging: process.env.NODE_ENV === 'development',
+  ssl:
+    process.env.NODE_ENV === 'production'
+      ? { rejectUnauthorized: false }
+      : false,
+};
+
+console.log(process.env.DB_PASSWORD);
+console.log(typeof process.env.DB_PASSWORD);
+</file>
+
+<file path="src/customers/customers.controller.ts">
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { Customer } from 'src/common/entities/customer.entity';
+import { ListCustomersQueryDto } from './dto/list-customers-query.dto';
+import { CustomersService } from './customers.service';
+
+@ApiTags('Customers')
+@ApiBearerAuth()
+@Controller('customers')
+export class CustomersController {
+  constructor(private readonly customersService: CustomersService) {}
+
+  @Get()
+  @ApiOperation({ summary: 'List customers in current business' })
+  @ApiResponse({ status: 200, type: [Customer] })
+  async list(
+    @CurrentUser() user: AuthenticatedUser,
+    @Query() query: ListCustomersQueryDto,
+  ): Promise<Customer[]> {
+    return this.customersService.list(user.businessId, query);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get customer by id in current business' })
+  @ApiResponse({ status: 200, type: Customer })
+  async getById(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+  ): Promise<Customer> {
+    return this.customersService.getById(user.businessId, id);
+  }
+}
+</file>
+
+<file path="src/customers/customers.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Customer } from 'src/common/entities/customer.entity';
+import { CustomersController } from './customers.controller';
+import { CustomersService } from './customers.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Customer])],
+  controllers: [CustomersController],
+  providers: [CustomersService],
+})
+export class CustomersModule {}
+</file>
+
+<file path="src/customers/customers.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Customer } from 'src/common/entities/customer.entity';
+import { ListCustomersQueryDto } from './dto/list-customers-query.dto';
+
+@Injectable()
+export class CustomersService {
+  constructor(
+    @InjectRepository(Customer)
+    private readonly customerRepository: Repository<Customer>,
+  ) {}
+
+  async list(businessId: string, query: ListCustomersQueryDto): Promise<Customer[]> {
+    const qb = this.customerRepository
+      .createQueryBuilder('customer')
+      .where('customer.businessId = :businessId', { businessId })
+      .orderBy('customer.createdAt', 'DESC');
+
+    if (query.search) {
+      qb.andWhere(
+        '(LOWER(customer.name) LIKE :search OR LOWER(customer.email) LIKE :search OR LOWER(customer.phone) LIKE :search)',
+        { search: `%${query.search.toLowerCase()}%` },
+      );
+    }
+
+    return qb.getMany();
+  }
+
+  async getById(businessId: string, customerId: string): Promise<Customer> {
+    const customer = await this.customerRepository.findOne({
+      where: { id: customerId, businessId },
+    });
+    if (!customer) {
+      throw new NotFoundException('Customer not found');
+    }
+    return customer;
+  }
+}
+</file>
+
+<file path="src/customers/dto/list-customers-query.dto.ts">
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IsOptional, IsString } from 'class-validator';
+
+export class ListCustomersQueryDto {
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  search?: string;
+}
+</file>
+
+<file path="src/dashboard/dashboard.controller.ts">
+import { Controller, Get } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { DashboardMetricsDto } from './dto/dashboard-metrics.dto';
+import { DashboardTrendsDto } from './dto/dashboard-trends.dto';
+import { DashboardService } from './dashboard.service';
+
+@ApiTags('Dashboard')
+@ApiBearerAuth()
+@Controller('dashboard')
+export class DashboardController {
+  constructor(private readonly dashboardService: DashboardService) {}
+
+  @Get('metrics')
+  @ApiOperation({ summary: 'Get dashboard metrics for current business tenant' })
+  @ApiResponse({ status: 200, type: DashboardMetricsDto })
+  async getMetrics(@CurrentUser() user: AuthenticatedUser): Promise<DashboardMetricsDto> {
+    return this.dashboardService.getMetrics(user.businessId);
+  }
+
+  @Get('trends')
+  @ApiOperation({ summary: 'Get dashboard performance trends for current business tenant' })
+  @ApiResponse({ status: 200, type: DashboardTrendsDto })
+  async getTrends(@CurrentUser() user: AuthenticatedUser): Promise<DashboardTrendsDto> {
+    return this.dashboardService.getTrends(user.businessId);
+  }
+}
+</file>
+
+<file path="src/dashboard/dashboard.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { DashboardController } from './dashboard.controller';
+import { DashboardService } from './dashboard.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Ticket])],
+  controllers: [DashboardController],
+  providers: [DashboardService],
+})
+export class DashboardModule {}
+</file>
+
+<file path="src/dashboard/dashboard.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Between, Repository } from 'typeorm';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { TicketStatus } from 'src/common/enums/ticket-status.enum';
+import { DashboardMetricsDto } from './dto/dashboard-metrics.dto';
+import { DashboardTrendPointDto, DashboardTrendsDto } from './dto/dashboard-trends.dto';
+
+@Injectable()
+export class DashboardService {
+  constructor(
+    @InjectRepository(Ticket)
+    private readonly ticketRepository: Repository<Ticket>,
+  ) {}
+
+  async getMetrics(businessId: string): Promise<DashboardMetricsDto> {
+    const now = new Date();
+    const dayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    const twoDaysAgo = new Date(now.getTime() - 48 * 60 * 60 * 1000);
+
+    const [openTickets, resolvedLast24h, resolvedPrev24h] = await Promise.all([
+      this.ticketRepository.count({
+        where: { businessId, status: TicketStatus.OPEN },
+      }),
+      this.ticketRepository.count({
+        where: {
+          businessId,
+          status: TicketStatus.RESOLVED,
+          resolvedAt: Between(dayAgo, now),
+        },
+      }),
+      this.ticketRepository.count({
+        where: {
+          businessId,
+          status: TicketStatus.RESOLVED,
+          resolvedAt: Between(twoDaysAgo, dayAgo),
+        },
+      }),
+    ]);
+
+    const resolvedLast24hChangePercent =
+      resolvedPrev24h === 0
+        ? resolvedLast24h > 0
+          ? 100
+          : 0
+        : Math.round(((resolvedLast24h - resolvedPrev24h) / resolvedPrev24h) * 100);
+
+    const avgResponseHours = await this.getAverageResolutionHours(businessId);
+
+    return {
+      openTickets,
+      resolvedLast24h,
+      resolvedLast24hChangePercent,
+      avgResponseHours,
+    };
+  }
+
+  async getTrends(businessId: string): Promise<DashboardTrendsDto> {
+    const [openedRaw, resolvedRaw] = await Promise.all([
+      this.ticketRepository
+        .createQueryBuilder('ticket')
+        .select("to_char(ticket.createdAt, 'HH24:00')", 'time')
+        .addSelect('COUNT(ticket.id)', 'count')
+        .where('ticket.businessId = :businessId', { businessId })
+        .andWhere("ticket.createdAt >= NOW() - INTERVAL '24 hours'")
+        .groupBy("to_char(ticket.createdAt, 'HH24:00')")
+        .getRawMany<{ time: string; count: string }>(),
+      this.ticketRepository
+        .createQueryBuilder('ticket')
+        .select("to_char(ticket.resolvedAt, 'HH24:00')", 'time')
+        .addSelect('COUNT(ticket.id)', 'count')
+        .where('ticket.businessId = :businessId', { businessId })
+        .andWhere('ticket.status = :status', { status: TicketStatus.RESOLVED })
+        .andWhere("ticket.resolvedAt >= NOW() - INTERVAL '24 hours'")
+        .groupBy("to_char(ticket.resolvedAt, 'HH24:00')")
+        .getRawMany<{ time: string; count: string }>(),
+    ]);
+
+    const openedMap = new Map<string, number>(
+      openedRaw.map((item) => [item.time, Number(item.count)]),
+    );
+    const resolvedMap = new Map<string, number>(
+      resolvedRaw.map((item) => [item.time, Number(item.count)]),
+    );
+
+    // Generate all hours in the last 24 hours
+    const now = new Date();
+    const hours: string[] = [];
+    for (let i = 23; i >= 0; i--) {
+      const hour = new Date(now.getTime() - i * 60 * 60 * 1000);
+      hours.push(String(hour.getHours()).padStart(2, '0') + ':00');
+    }
+
+    const points: DashboardTrendPointDto[] = hours.map((time) => ({
+      time,
+      ticketsOpened: openedMap.get(time) ?? 0,
+      ticketsResolved: resolvedMap.get(time) ?? 0,
+    }));
+
+    return { points };
+  }
+
+  private async getAverageResolutionHours(businessId: string): Promise<number> {
+    const raw = await this.ticketRepository
+      .createQueryBuilder('ticket')
+      .select('AVG(EXTRACT(EPOCH FROM (ticket.resolvedAt - ticket.createdAt)) / 3600)', 'avgHours')
+      .where('ticket.businessId = :businessId', { businessId })
+      .andWhere('ticket.status = :status', { status: TicketStatus.RESOLVED })
+      .andWhere('ticket.resolvedAt IS NOT NULL')
+      .getRawOne<{ avgHours: string | null }>();
+
+    return raw?.avgHours ? Number(Number(raw.avgHours).toFixed(1)) : 0;
+  }
+}
+</file>
+
+<file path="src/dashboard/dto/dashboard-metrics.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+
+export class DashboardMetricsDto {
+  @ApiProperty({ example: 124 })
+  openTickets!: number;
+
+  @ApiProperty({ example: 45 })
+  resolvedLast24h!: number;
+
+  @ApiProperty({ example: 12 })
+  resolvedLast24hChangePercent!: number;
+
+  @ApiProperty({ example: 1.2 })
+  avgResponseHours!: number;
+}
+</file>
+
+<file path="src/dashboard/dto/dashboard-trends.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+
+export class DashboardTrendPointDto {
+  @ApiProperty({ example: '08:00' })
+  time!: string;
+
+  @ApiProperty({ example: 18 })
+  ticketsOpened!: number;
+
+  @ApiProperty({ example: 14 })
+  ticketsResolved!: number;
+}
+
+export class DashboardTrendsDto {
+  @ApiProperty({ type: [DashboardTrendPointDto] })
+  points!: DashboardTrendPointDto[];
+}
+</file>
+
+<file path="src/database/data-source.ts">
+import 'dotenv/config';
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
+import { getTypeOrmOptions } from './typeorm.config';
+
+export const AppDataSource = new DataSource({
+  ...getTypeOrmOptions(),
+  migrations: ['src/database/migrations/*.ts'],
+});
+</file>
+
+<file path="src/database/migrations/1760000000000-InitSchema.ts">
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class InitSchema1760000000000 implements MigrationInterface {
+  name = 'InitSchema1760000000000';
+
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    void queryRunner;
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    void queryRunner;
+  }
+}
+</file>
+
+<file path="src/database/README.md">
+# Database Directory
+
+This directory contains database configuration and utilities for SmartCX AI backend.
+
+## 📁 Structure
+
+```
+database/
+├── seeds/              # Database seeding utilities
+│   ├── seed.service.ts  # Main seeding logic
+│   ├── seed.module.ts   # NestJS module for seeding
+│   ├── seed.command.ts  # CLI command to run seeder
+│   └── index.ts         # Exports
+```
+
+## 🌱 Database Seeding
+
+The seeder populates your database with test data for development and testing.
+
+### Quick Start
+
+```bash
+# Run the seeder
+npm run seed
+```
+
+This creates:
+- 4 test users with different personas
+- 9 test tasks with various statuses
+- 7 test projects with progress tracking
+- 8 test calendar events
+
+### Test Credentials
+
+After seeding, use these to login:
+
+- **Email:** manager@smartcx.local
+- **Password:** password123
+
+[See SEEDER_GUIDE.md for more details](../SEEDER_GUIDE.md)
+
+## 📚 Usage
+
+### Seed Database
+```bash
+npm run seed
+```
+
+### Seed After Build
+```bash
+npm run seed:build
+```
+
+### Verify Data
+```bash
+# Query database
+psql -U postgres -d smartcx_ai
+
+# List users
+SELECT * FROM "user";
+
+# List tasks
+SELECT * FROM "task";
+
+# Exit
+\q
+```
+
+## ⚙️ How It Works
+
+1. **Connects** to PostgreSQL database
+2. **Clears** all existing data (⚠️ destructive!)
+3. **Creates** test users with hashed passwords
+4. **Creates** test data (tasks, projects, events)
+5. **Displays** login credentials
+6. **Completes** and exits
+
+## 🔧 Customization
+
+Edit `seeds/seed.service.ts` to:
+
+- Add more test users
+- Modify task data
+- Add more projects
+- Create different events
+- Change data generation logic
+
+Example: Add more users
+
+```typescript
+// In createUsers() method
+const usersData = [
+  // ... existing ...
+  {
+    fullName: 'Your Name',
+    email: 'user@smartcx.local',
+    password: 'password123',
+    persona: 'Manager',
+  },
+];
+```
+
+## 📖 Full Documentation
+
+See [SEEDER_GUIDE.md](../SEEDER_GUIDE.md) for:
+- Detailed setup instructions
+- Seeded data descriptions
+- Testing examples
+- Troubleshooting
+- Customization tips
+
+## 🐛 Troubleshooting
+
+**Database connection error?**
+- Start PostgreSQL: `docker-compose up -d`
+- Check `.env` credentials
+
+**Tables not created?**
+- Run backend once: `npm run start:dev`
+- Wait for initialization
+- Then run seeder
+
+**Permission denied?**
+- Verify database user has proper permissions
+- Check PostgreSQL is running
+
+## ⚠️ Important
+
+- Seeder **clears all data** before seeding
+- Use only in **development environments**
+- Don't run in **production** without caution
+- Back up data before running seeder
+
+## 🔗 Related Files
+
+- [SEEDER_GUIDE.md](../SEEDER_GUIDE.md) - Full seeding documentation
+- [README.md](../README.md) - Backend overview
+- [.env](../.env) - Database configuration
+- [src/config/typeorm.config.ts](../src/config/typeorm.config.ts) - TypeORM setup
+
+## ✨ Features
+
+✅ Automatic password hashing  
+✅ Realistic test data  
+✅ User data isolation  
+✅ Multiple status types  
+✅ Priority levels  
+✅ Date distribution  
+✅ Easy customization  
+
+---
+
+**Version:** 1.0.0  
+**Last Updated:** 2026-06-23
+</file>
+
+<file path="src/database/seeds/demo.seed.ts">
+import { v4 as uuidv4 } from 'uuid';
+import * as bcrypt from 'bcryptjs';
+import { DataSource } from 'typeorm';
+import { Business } from '../../common/entities/business.entity';
+import { User } from '../../common/entities/user.entity';
+import { Customer } from '../../common/entities/customer.entity';
+import { Channel } from '../../common/entities/channel.entity';
+import { Issue } from '../../common/entities/issue.entity';
+import { Ticket } from '../../common/entities/ticket.entity';
+import { Message } from '../../common/entities/message.entity';
+import { ChannelType } from '../../common/enums/channel-type.enum';
+import { Priority } from '../../common/enums/priority.enum';
+import { IssueStatus } from '../../common/enums/issue-status.enum';
+import { TicketStatus } from '../../common/enums/ticket-status.enum';
+import { SentimentLabel } from '../../common/enums/sentiment-label.enum';
+import { UserRole } from '../../common/enums/user-role.enum';
+import { CustomerStatus } from '../../common/enums/customer-status.enum';
+import { MessageSenderType } from '../../common/enums/message-sender-type.enum';
+
+export async function seedDatabase(dataSource: DataSource): Promise<void> {
+  const businessRepo = dataSource.getRepository(Business);
+  const userRepo = dataSource.getRepository(User);
+  const customerRepo = dataSource.getRepository(Customer);
+  const channelRepo = dataSource.getRepository(Channel);
+  const issueRepo = dataSource.getRepository(Issue);
+  const ticketRepo = dataSource.getRepository(Ticket);
+  const messageRepo = dataSource.getRepository(Message);
+
+  console.log('🌱 Starting database seeding...');
+
+  // Check if demo business already exists by looking for the business owner user
+  const existingUser = await userRepo.findOne({
+    where: { email: 'aisha@smartcxdemo.com' },
+  });
+
+  if (existingUser) {
+    console.log('✅ Demo data already exists! Skipping seeding.');
+    console.log('\n📝 Demo Login Credentials:');
+    console.log('   Email: aisha@smartcxdemo.com');
+    console.log('   Password: Demo@1234');
+    return;
+  }
+
+  // Create demo business
+  const passwordHash = await bcrypt.hash('Demo@1234', 12);
+  const businessId = uuidv4();
+
+  const business = businessRepo.create({
+    id: businessId,
+    businessName: 'SmartCX Demo Retail',
+    ownerName: 'Aisha Bello',
+    email: 'aisha@smartcxdemo.com',
+    phone: '09012345678',
+    category: 'Retail',
+    passwordHash,
+    logoUrl: null,
+    isActive: true,
+  });
+  await businessRepo.save(business);
+  console.log('✓ Created Business:', business.businessName);
+
+  // Create owner user (Aisha)
+  const ownerUser = userRepo.create({
+    id: uuidv4(),
+    businessId,
+    firstName: 'Aisha',
+    lastName: 'Bello',
+    email: 'aisha@smartcxdemo.com',
+    passwordHash,
+    role: UserRole.SUPER_ADMIN,
+    isOnline: true,
+    lastSeenAt: new Date(),
+  });
+  await userRepo.save(ownerUser);
+  console.log('✓ Created Owner: Aisha Bello (aisha@smartcxdemo.com)');
+
+  // Create demo agent users
+  const agentNames = [
+    { firstName: 'Ikenna', lastName: 'Obi', email: 'ikenna@smartcxdemo.com', role: UserRole.ADMIN },
+    { firstName: 'Tomiwa', lastName: 'Ade', email: 'tomiwa@smartcxdemo.com', role: UserRole.AGENT },
+    { firstName: 'Chioma', lastName: 'Eze', email: 'chioma@smartcxdemo.com', role: UserRole.AGENT },
+  ];
+
+  const users: User[] = [ownerUser];
+  for (const agent of agentNames) {
+    const user = userRepo.create({
+      id: uuidv4(),
+      businessId,
+      firstName: agent.firstName,
+      lastName: agent.lastName,
+      email: agent.email,
+      passwordHash,
+      role: agent.role,
+      isOnline: true,
+      lastSeenAt: new Date(),
+    });
+    await userRepo.save(user);
+    users.push(user);
+  }
+  console.log(`✓ Created ${users.length - 1} demo agents`);
+
+  // Create demo customers
+  const customerData = [
+    { name: 'Chidi Okafor', phone: '08112345671', email: 'chidi@yopmail.com', channel: ChannelType.WHATSAPP, status: CustomerStatus.NEW },
+    { name: 'Ngozi Ejiofor', phone: '08112345672', email: 'ngozi@yopmail.com', channel: ChannelType.INSTAGRAM, status: CustomerStatus.RETURNING },
+    { name: 'Kayode Adeyemi', phone: '08112345673', email: 'kayode@yopmail.com', channel: ChannelType.EMAIL, status: CustomerStatus.VIP },
+    { name: 'Amara Nwankwo', phone: '08112345674', email: 'amara@yopmail.com', channel: ChannelType.WHATSAPP, status: CustomerStatus.RETURNING },
+    { name: 'Taiwo Oluwaseun', phone: '08112345675', email: 'taiwo@yopmail.com', channel: ChannelType.INSTAGRAM, status: CustomerStatus.NEW },
+    { name: 'Blessing Obi', phone: '08112345676', email: 'blessing@yopmail.com', channel: ChannelType.EMAIL, status: CustomerStatus.VIP },
+    { name: 'Emeka Ihuoma', phone: '08112345677', email: 'emeka@yopmail.com', channel: ChannelType.WHATSAPP, status: CustomerStatus.RETURNING },
+  ];
+
+  const customers: Customer[] = [];
+  for (const data of customerData) {
+    const customer = customerRepo.create({
+      id: uuidv4(),
+      businessId,
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      channel: data.channel,
+      totalSpent: Math.floor(Math.random() * 150000) + 10000,
+      location: 'Lagos',
+      status: data.status,
+    });
+    await customerRepo.save(customer);
+    customers.push(customer);
+  }
+  console.log(`✓ Created ${customers.length} demo customers`);
+
+  // Create demo channels
+  const channelData = [
+    { type: ChannelType.WHATSAPP, isConnected: true },
+    { type: ChannelType.INSTAGRAM, isConnected: true },
+    { type: ChannelType.EMAIL, isConnected: true },
+  ];
+
+  for (const data of channelData) {
+    const channel = channelRepo.create({
+      id: uuidv4(),
+      businessId,
+      type: data.type,
+      credentials: { accountId: `demo-${data.type}` },
+      isConnected: data.isConnected,
+      connectedAt: new Date(),
+    });
+    await channelRepo.save(channel);
+  }
+  console.log('✓ Created 3 demo channels (WhatsApp, Instagram, Email)');
+
+  // Create demo issues
+  const issueMessages = [
+    {
+      customer: customers[0],
+      channel: ChannelType.WHATSAPP,
+      message: "I ordered a phone last week but it hasn't arrived yet. Where's my delivery?",
+      sentiment: SentimentLabel.FRUSTRATED,
+      sentimentScore: -0.6,
+      category: 'Delivery',
+      priority: Priority.HIGH,
+      status: IssueStatus.PENDING,
+    },
+    {
+      customer: customers[1],
+      channel: ChannelType.INSTAGRAM,
+      message: 'The dress I bought has a defect. Can I get a replacement?',
+      sentiment: SentimentLabel.NEUTRAL,
+      sentimentScore: -0.2,
+      category: 'Product',
+      priority: Priority.MEDIUM,
+      status: IssueStatus.PENDING,
+    },
+    {
+      customer: customers[2],
+      channel: ChannelType.EMAIL,
+      message: 'I want to return my purchase from last month.',
+      sentiment: SentimentLabel.NEUTRAL,
+      sentimentScore: 0,
+      category: 'Refund',
+      priority: Priority.MEDIUM,
+      status: IssueStatus.NEW,
+    },
+    {
+      customer: customers[3],
+      channel: ChannelType.WHATSAPP,
+      message: 'Excellent service! Thank you so much for the quick response.',
+      sentiment: SentimentLabel.POSITIVE,
+      sentimentScore: 0.8,
+      category: 'General',
+      priority: Priority.LOW,
+      status: IssueStatus.CONVERTED,
+    },
+    {
+      customer: customers[4],
+      channel: ChannelType.INSTAGRAM,
+      message: 'I have been trying to contact support for 3 days now with no response!!!',
+      sentiment: SentimentLabel.ANGRY,
+      sentimentScore: -0.9,
+      category: 'Support',
+      priority: Priority.URGENT,
+      status: IssueStatus.NEW,
+    },
+  ];
+
+  const issues: Issue[] = [];
+  for (const data of issueMessages) {
+    const issue = issueRepo.create({
+      id: uuidv4(),
+      businessId,
+      customerId: data.customer.id,
+      channelType: data.channel,
+      messagePreview: data.message.substring(0, 100),
+      rawMessages: [{ text: data.message, timestamp: new Date() }],
+      sentimentScore: data.sentimentScore,
+      sentimentLabel: data.sentiment,
+      category: data.category,
+      priority: data.priority,
+      status: data.status,
+      aiAnalysisSummary: `Issue detected: ${data.category}. Sentiment is ${data.sentiment}. Customer needs immediate attention.`,
+    });
+    await issueRepo.save(issue);
+    issues.push(issue);
+  }
+  console.log(`✓ Created ${issues.length} demo issues`);
+
+  // Create demo tickets from converted issues with spread timestamps
+  const tickets: Ticket[] = [];
+  const now = new Date();
+  
+  // Ticket 1: Open, assigned to Ikenna (created 20 hours ago)
+  const ticket1CreatedAt = new Date(now.getTime() - 20 * 60 * 60 * 1000);
+  const ticket1 = ticketRepo.create({
+    id: uuidv4(),
+    businessId,
+    issueId: issues[0].id,
+    customerId: issues[0].customerId,
+    ticketNumber: `TKT-${Date.now()}-001`,
+    title: 'Urgent: Delivery delay - Customer upset',
+    category: 'Delivery',
+    priority: Priority.URGENT,
+    status: TicketStatus.OPEN,
+    assignedAgentId: users[1].id, // Ikenna (admin)
+    aiDraftSummary: 'Customer order delayed by 5 days. Tracking shows package stuck at distribution center. Recommend shipping expedite or refund.',
+    aiInsightSummary: 'High urgency: Customer sentiment shifted from neutral to frustrated. Previous positive purchase history at risk.',
+    internalNotes: ['Check Lagos warehouse status', 'Prepare expedited shipping option'],
+    createdAt: ticket1CreatedAt,
+    resolvedAt: null,
+    resolutionSummary: null,
+  });
+  await ticketRepo.save(ticket1);
+  tickets.push(ticket1);
+
+  // Add messages for ticket 1
+  const ticket1Messages = [
+    {
+      ticketId: ticket1.id,
+      senderType: MessageSenderType.CUSTOMER,
+      content: 'My order is supposed to arrive today but I still don\'t have it!',
+      senderId: issues[0].customerId,
+    },
+    {
+      ticketId: ticket1.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'I sincerely apologize for the delay. Let me check your shipment status immediately.',
+      senderId: users[1].id,
+    },
+    {
+      ticketId: ticket1.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'Your package is currently in our Lagos facility. We\'re expediting it for delivery tomorrow morning.',
+      senderId: users[1].id,
+    },
+  ];
+
+  for (const msgData of ticket1Messages) {
+    const message = messageRepo.create({
+      id: uuidv4(),
+      ticketId: msgData.ticketId,
+      senderId: msgData.senderId,
+      senderType: msgData.senderType,
+      content: msgData.content,
+      attachmentUrl: null,
+      isInternalNote: false,
+    });
+    await messageRepo.save(message);
+  }
+
+  // Ticket 2: Resolved, assigned to Tomiwa (created 16 hours ago, resolved 12 hours ago = 4 hour response)
+  const ticket2CreatedAt = new Date(now.getTime() - 16 * 60 * 60 * 1000);
+  const ticket2ResolvedAt = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+  const ticket2 = ticketRepo.create({
+    id: uuidv4(),
+    businessId,
+    issueId: issues[1].id,
+    customerId: issues[1].customerId,
+    ticketNumber: `TKT-${Date.now()}-002`,
+    title: 'Product defect - Dress replacement',
+    category: 'Product',
+    priority: Priority.MEDIUM,
+    status: TicketStatus.RESOLVED,
+    assignedAgentId: users[2].id, // Tomiwa (agent)
+    aiDraftSummary: 'Customer received defective dress. Quality control issue identified. Replacement in stock.',
+    aiInsightSummary: 'Positive resolution: Replacement shipped same day. Customer satisfaction likely high.',
+    internalNotes: ['Flag supplier for quality check', 'Send apology coupon'],
+    createdAt: ticket2CreatedAt,
+    resolvedAt: ticket2ResolvedAt,
+    resolutionSummary: 'Replacement dress sent with 2-day delivery. Customer apologized to via message.',
+    sentimentShiftStart: 'frustrated',
+    sentimentShiftEnd: 'satisfied',
+  });
+  await ticketRepo.save(ticket2);
+  tickets.push(ticket2);
+
+  // Add messages for ticket 2
+  const ticket2Messages = [
+    {
+      ticketId: ticket2.id,
+      senderType: MessageSenderType.CUSTOMER,
+      content: 'This dress has a seam defect. I need a replacement immediately.',
+      senderId: issues[1].customerId,
+    },
+    {
+      ticketId: ticket2.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'We apologize for this manufacturing issue. I\'m arranging a replacement right away.',
+      senderId: users[2].id,
+    },
+    {
+      ticketId: ticket2.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'Your replacement has been shipped. Tracking: 12345XY. Should arrive by Friday.',
+      senderId: users[2].id,
+    },
+    {
+      ticketId: ticket2.id,
+      senderType: MessageSenderType.CUSTOMER,
+      content: 'Thank you! This is great customer service.',
+      senderId: issues[1].customerId,
+    },
+  ];
+
+  for (const msgData of ticket2Messages) {
+    const message = messageRepo.create({
+      id: uuidv4(),
+      ticketId: msgData.ticketId,
+      senderId: msgData.senderId,
+      senderType: msgData.senderType,
+      content: msgData.content,
+      attachmentUrl: null,
+      isInternalNote: false,
+    });
+    await messageRepo.save(message);
+  }
+
+  // Ticket 3: Pending, assigned to Chioma (created 8 hours ago)
+  const ticket3CreatedAt = new Date(now.getTime() - 8 * 60 * 60 * 1000);
+  const ticket3 = ticketRepo.create({
+    id: uuidv4(),
+    businessId,
+    issueId: issues[2].id,
+    customerId: issues[2].customerId,
+    ticketNumber: `TKT-${Date.now()}-003`,
+    title: 'Return request - Refund processing',
+    category: 'Refund',
+    priority: Priority.MEDIUM,
+    status: TicketStatus.PENDING,
+    assignedAgentId: users[3].id, // Chioma (agent)
+    aiDraftSummary: 'Customer requesting return of item purchased last month. Within 30-day window.',
+    aiInsightSummary: 'Standard return process. Approx. 5-7 days for processing and refund.',
+    internalNotes: ['Request item photos', 'Check warranty status'],
+    createdAt: ticket3CreatedAt,
+    resolvedAt: null,
+    resolutionSummary: null,
+  });
+  await ticketRepo.save(ticket3);
+  tickets.push(ticket3);
+
+  // Add messages for ticket 3
+  const ticket3Messages = [
+    {
+      ticketId: ticket3.id,
+      senderType: MessageSenderType.CUSTOMER,
+      content: 'I purchased this last month but it\'s not what I expected. Can I return it?',
+      senderId: issues[2].customerId,
+    },
+    {
+      ticketId: ticket3.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'Of course! You\'re within our 30-day return window. Could you send photos of the item?',
+      senderId: users[3].id,
+    },
+  ];
+
+  for (const msgData of ticket3Messages) {
+    const message = messageRepo.create({
+      id: uuidv4(),
+      ticketId: msgData.ticketId,
+      senderId: msgData.senderId,
+      senderType: msgData.senderType,
+      content: msgData.content,
+      attachmentUrl: null,
+      isInternalNote: false,
+    });
+    await messageRepo.save(message);
+  }
+
+  // Ticket 4: Resolved, assigned to Ikenna (created 30 hours ago, resolved 24 hours ago = 6 hour response)
+  const ticket4CreatedAt = new Date(now.getTime() - 30 * 60 * 60 * 1000);
+  const ticket4ResolvedTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+  const ticket4 = ticketRepo.create({
+    id: uuidv4(),
+    businessId,
+    issueId: issues[3].id,
+    customerId: issues[3].customerId,
+    ticketNumber: `TKT-${Date.now()}-004`,
+    title: 'Positive feedback - Quick resolution',
+    category: 'General',
+    priority: Priority.LOW,
+    status: TicketStatus.RESOLVED,
+    assignedAgentId: users[1].id, // Ikenna
+    aiDraftSummary: 'Customer expressing satisfaction with order and quick response time.',
+    aiInsightSummary: 'VIP interaction: Positive sentiment. Opportunity for loyalty program enrollment.',
+    internalNotes: ['Add to VIP list', 'Send exclusive offers'],
+    createdAt: ticket4CreatedAt,
+    resolvedAt: ticket4ResolvedTime,
+    resolutionSummary: 'Customer appreciated speedy service. Converted to VIP member.',
+    sentimentShiftStart: 'positive',
+    sentimentShiftEnd: 'very satisfied',
+  });
+  await ticketRepo.save(ticket4);
+  tickets.push(ticket4);
+
+  // Add message for ticket 4
+  const ticket4Messages = [
+    {
+      ticketId: ticket4.id,
+      senderType: MessageSenderType.CUSTOMER,
+      content: 'Excellent service! Thank you so much for the quick response.',
+      senderId: issues[3].customerId,
+    },
+    {
+      ticketId: ticket4.id,
+      senderType: MessageSenderType.AGENT,
+      content: 'Thank you for choosing us! We\'re honored by your feedback.',
+      senderId: users[1].id,
+    },
+  ];
+
+  for (const msgData of ticket4Messages) {
+    const message = messageRepo.create({
+      id: uuidv4(),
+      ticketId: msgData.ticketId,
+      senderId: msgData.senderId,
+      senderType: msgData.senderType,
+      content: msgData.content,
+      attachmentUrl: null,
+      isInternalNote: false,
+    });
+    await messageRepo.save(message);
+  }
+
+  console.log(`✓ Created ${tickets.length} demo tickets with messages and assignments`);
+  console.log(`✓ Assigned tickets to agents (Ikenna, Tomiwa, Chioma)`);
+
+  console.log('\n✅ Database seeding completed successfully!');
+  console.log('\n📝 Demo Login Credentials:');
+  console.log('   Email: aisha@smartcxdemo.com');
+  console.log('   Password: Demo@1234');
+  console.log('\n📊 Demo Data Summary:');
+  console.log(`   Business: 1 (SmartCX Demo Retail)`);
+  console.log(`   Users: ${users.length}`);
+  console.log(`   Customers: ${customers.length}`);
+  console.log(`   Channels: 3`);
+  console.log(`   Issues: ${issues.length}`);
+  console.log(`   Tickets: ${tickets.length}`);
+  console.log(`   Messages: ${ticket1Messages.length + ticket2Messages.length + ticket3Messages.length + ticket4Messages.length}`);
+  console.log('\n🎯 Ticket Status Breakdown:');
+  console.log('   • 1 OPEN (Urgent - Delivery)');
+  console.log('   • 1 PENDING (Medium - Refund)');
+  console.log('   • 2 RESOLVED (Low & Medium priorities)');
+  console.log('\n👥 Agent Assignments:');
+  console.log('   • Ikenna Obi (Admin): 2 tickets');
+  console.log('   • Tomiwa Ade (Agent): 1 ticket');
+  console.log('   • Chioma Eze (Agent): 1 ticket');
+}
+</file>
+
+<file path="src/database/seeds/index.ts">
+export { SeedService } from './seed.service';
+export { SeedModule } from './seed.module';
+</file>
+
+<file path="src/database/seeds/run-seed.ts">
+import { AppDataSource } from '../data-source';
+import { seedDatabase } from './demo.seed';
+
+async function main(): Promise<void> {
+  try {
+    await AppDataSource.initialize();
+    console.log('✅ Database connection established');
+    await seedDatabase(AppDataSource);
+    await AppDataSource.destroy();
+    console.log('✅ Seeding complete and database closed');
+  } catch (error) {
+    console.error('❌ Seeding failed:', error);
+    process.exit(1);
+  }
+}
+
+void main();
+</file>
+
+<file path="src/database/seeds/seed.command.ts">
+import { NestFactory } from '@nestjs/core';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from '@nestjs/common';
+import { typeOrmConfig } from '../../config/typeorm.config';
+import { SeedService } from './seed.service';
+import { User } from '../../entities/user.entity';
+import { Task } from '../../entities/task.entity';
+import { Project } from '../../entities/project.entity';
+import { Event } from '../../entities/event.entity';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot(typeOrmConfig),
+    TypeOrmModule.forFeature([User, Task, Project, Event]),
+  ],
+  providers: [SeedService],
+})
+export class SeedCliModule {}
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(SeedCliModule);
+
+  try {
+    const seedService = app.get(SeedService);
+    await seedService.seed();
+    console.log('\n✨ Seeding complete! Application ready.');
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    process.exit(1);
+  } finally {
+    await app.close();
+    process.exit(0);
+  }
+}
+
+bootstrap();
+</file>
+
+<file path="src/database/seeds/seed.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from '../../entities/user.entity';
+import { Task } from '../../entities/task.entity';
+import { Project } from '../../entities/project.entity';
+import { Event } from '../../entities/event.entity';
+import { SeedService } from './seed.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([User, Task, Project, Event])],
+  providers: [SeedService],
+  exports: [SeedService],
+})
+export class SeedModule {}
+</file>
+
+<file path="src/database/seeds/seed.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, DataSource } from 'typeorm';
+import * as bcrypt from 'bcryptjs';
+import { User } from '../../entities/user.entity';
+import { Task } from '../../entities/task.entity';
+import { Project } from '../../entities/project.entity';
+import { Event } from '../../entities/event.entity';
+
+@Injectable()
+export class SeedService {
+  constructor(
+    private readonly dataSource: DataSource,
+
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+
+    @InjectRepository(Task)
+    private readonly taskRepository: Repository<Task>,
+
+    @InjectRepository(Project)
+    private readonly projectRepository: Repository<Project>,
+
+    @InjectRepository(Event)
+    private readonly eventRepository: Repository<Event>,
+  ) {}
+
+  async seed(): Promise<void> {
+    console.log('🌱 Starting database seeding...');
+
+    await this.clearDatabase();
+
+    const users = await this.createUsers();
+    console.log(`✅ Users created: ${users.length}`);
+
+    const tasks = await this.createTasks(users);
+    console.log(`✅ Tasks created: ${tasks.length}`);
+
+    const projects = await this.createProjects(users);
+    console.log(`✅ Projects created: ${projects.length}`);
+
+    const events = await this.createEvents(users);
+    console.log(`✅ Events created: ${events.length}`);
+
+    console.log('✨ Database seeding completed successfully!');
+    console.log('\n📝 Test Credentials:');
+    console.log('-------------------');
+
+    users.forEach((user) => {
+      console.log(`Email: ${user.email}`);
+      console.log('Password: password123');
+      console.log(`Persona: ${user.persona}`);
+      console.log('-------------------');
+    });
+  }
+
+  private async clearDatabase(): Promise<void> {
+    console.log('🧹 Clearing existing data...');
+
+    await this.taskRepository.createQueryBuilder().delete().execute();
+    await this.eventRepository.createQueryBuilder().delete().execute();
+    await this.projectRepository.createQueryBuilder().delete().execute();
+    await this.userRepository.createQueryBuilder().delete().execute();
+  }
+
+  private async createUsers(): Promise<User[]> {
+    const usersData = [
+      {
+        fullName: 'John Manager',
+        email: 'manager@smartcx.local',
+        password: 'password123',
+        persona: 'Manager',
+      },
+      {
+        fullName: 'Sarah Freelancer',
+        email: 'freelancer@smartcx.local',
+        password: 'password123',
+        persona: 'Freelancer',
+      },
+      {
+        fullName: 'Alex Executive',
+        email: 'executive@smartcx.local',
+        password: 'password123',
+        persona: 'Executive',
+      },
+      {
+        fullName: 'Demo User',
+        email: 'demo@smartcx.local',
+        password: 'password123',
+        persona: 'Manager',
+      },
+    ];
+
+    const users: User[] = [];
+
+    for (const userData of usersData) {
+      const hashedPassword = await bcrypt.hash(userData.password, 10);
+      const user = this.userRepository.create({
+        ...userData,
+        password: hashedPassword,
+      });
+      users.push(await this.userRepository.save(user));
+    }
+
+    return users;
+  }
+
+  private async createTasks(users: User[]): Promise<Task[]> {
+    const today = new Date();
+    const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+    const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    const tasksData = [
+      {
+        title: 'Complete Q4 Report',
+        description: 'Prepare quarterly performance report for stakeholders',
+        status: 'pending',
+        priority: 'high',
+        dueDate: tomorrow,
+        userId: users[0].id,
+      },
+      {
+        title: 'Review Team Performance',
+        description: 'Evaluate team members performance and provide feedback',
+        status: 'in-progress',
+        priority: 'high',
+        dueDate: nextWeek,
+        userId: users[0].id,
+      },
+      {
+        title: 'Plan Next Sprint',
+        description: 'Define sprint goals and assign tasks to team members',
+        status: 'completed',
+        priority: 'medium',
+        dueDate: today,
+        userId: users[0].id,
+      },
+      {
+        title: 'Design UI Mockups',
+        description: 'Create mockups for new dashboard component',
+        status: 'in-progress',
+        priority: 'high',
+        dueDate: tomorrow,
+        userId: users[1].id,
+      },
+      {
+        title: 'Client Presentation',
+        description: 'Present design concepts to client for feedback',
+        status: 'pending',
+        priority: 'medium',
+        dueDate: nextWeek,
+        userId: users[1].id,
+      },
+      {
+        title: 'Board Meeting Preparation',
+        description: 'Prepare slides and talking points for board meeting',
+        status: 'pending',
+        priority: 'high',
+        dueDate: tomorrow,
+        userId: users[2].id,
+      },
+      {
+        title: 'Budget Review',
+        description: 'Review budget allocation for Q4',
+        status: 'completed',
+        priority: 'high',
+        dueDate: today,
+        userId: users[2].id,
+      },
+      {
+        title: 'Get Started Tutorial',
+        description: 'Complete the SmartCX AI tutorial to learn features',
+        status: 'pending',
+        priority: 'medium',
+        dueDate: tomorrow,
+        userId: users[3].id,
+      },
+      {
+        title: 'Explore Dashboard',
+        description: 'Explore all dashboard features and analytics',
+        status: 'in-progress',
+        priority: 'low',
+        dueDate: nextWeek,
+        userId: users[3].id,
+      },
+    ];
+
+    const tasks: Task[] = [];
+    for (const taskData of tasksData) {
+      tasks.push(
+        await this.taskRepository.save(this.taskRepository.create(taskData)),
+      );
+    }
+    return tasks;
+  }
+
+  private async createProjects(users: User[]): Promise<Project[]> {
+    const projectsData = [
+      {
+        name: 'Mobile App Development',
+        description:
+          'Development of new mobile application for iOS and Android',
+        status: 'in-progress',
+        progress: 65,
+        userId: users[0].id,
+      },
+      {
+        name: 'Cloud Migration',
+        description: 'Migrate on-premise infrastructure to cloud',
+        status: 'in-progress',
+        progress: 40,
+        userId: users[0].id,
+      },
+      {
+        name: 'Legacy System Upgrade',
+        description: 'Upgrade legacy systems to modern architecture',
+        status: 'completed',
+        progress: 100,
+        userId: users[0].id,
+      },
+      {
+        name: 'Website Redesign',
+        description: 'Complete redesign of company website',
+        status: 'in-progress',
+        progress: 75,
+        userId: users[1].id,
+      },
+      {
+        name: 'Branding Project',
+        description: 'Create new brand identity and guidelines',
+        status: 'pending',
+        progress: 10,
+        userId: users[1].id,
+      },
+      {
+        name: 'Digital Transformation',
+        description: 'Company-wide digital transformation initiative',
+        status: 'in-progress',
+        progress: 50,
+        userId: users[2].id,
+      },
+      {
+        name: 'Learning Project',
+        description: 'Sample project for testing the application',
+        status: 'pending',
+        progress: 25,
+        userId: users[3].id,
+      },
+    ];
+
+    const projects: Project[] = [];
+    for (const projectData of projectsData) {
+      projects.push(
+        await this.projectRepository.save(
+          this.projectRepository.create(projectData),
+        ),
+      );
+    }
+    return projects;
+  }
+
+  private async createEvents(users: User[]): Promise<Event[]> {
+    const today = new Date();
+    const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+    const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const twoWeeks = new Date(today.getTime() + 14 * 24 * 60 * 60 * 1000);
+
+    const eventsData = [
+      {
+        title: 'Team Standup',
+        description: 'Daily team standup meeting',
+        date: tomorrow,
+        userId: users[0].id,
+      },
+      {
+        title: 'One-on-One with Sarah',
+        description: 'Individual performance review with team member',
+        date: nextWeek,
+        userId: users[0].id,
+      },
+      {
+        title: 'Project Review Meeting',
+        description: 'Review progress on current projects',
+        date: twoWeeks,
+        userId: users[0].id,
+      },
+      {
+        title: 'Client Call',
+        description: 'Call with client to discuss project requirements',
+        date: tomorrow,
+        userId: users[1].id,
+      },
+      {
+        title: 'Design Workshop',
+        description: 'Interactive design workshop with team',
+        date: nextWeek,
+        userId: users[1].id,
+      },
+      {
+        title: 'Board Meeting',
+        description: 'Quarterly board meeting',
+        date: tomorrow,
+        userId: users[2].id,
+      },
+      {
+        title: 'Strategy Session',
+        description: 'Company strategy planning session',
+        date: twoWeeks,
+        userId: users[2].id,
+      },
+      {
+        title: 'Sample Meeting',
+        description: 'Sample event for demonstration',
+        date: tomorrow,
+        userId: users[3].id,
+      },
+    ];
+
+    const events: Event[] = [];
+    for (const eventData of eventsData) {
+      events.push(
+        await this.eventRepository.save(this.eventRepository.create(eventData)),
+      );
+    }
+    return events;
+  }
+}
+</file>
+
+<file path="src/database/typeorm.config.ts">
+import { DataSourceOptions } from 'typeorm';
+import { AuditLog } from 'src/common/entities/audit-log.entity';
+import { Business } from 'src/common/entities/business.entity';
+import { Channel } from 'src/common/entities/channel.entity';
+import { Customer } from 'src/common/entities/customer.entity';
+import { Issue } from 'src/common/entities/issue.entity';
+import { Message } from 'src/common/entities/message.entity';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { User } from 'src/common/entities/user.entity';
+
+export const getTypeOrmOptions = (): DataSourceOptions => ({
+  type: 'postgres',
+  host: process.env.DB_HOST ?? 'localhost',
+  port: Number(process.env.DB_PORT),
+  database: process.env.DB_NAME,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD || 'Agnes123.',
+  entities: [
+    Business,
+    User,
+    Channel,
+    Customer,
+    Issue,
+    Ticket,
+    Message,
+    AuditLog,
+  ],
+  migrations: ['dist/database/migrations/*.js'],
+  synchronize: process.env.NODE_ENV !== 'production',
+  logging: process.env.NODE_ENV !== 'production',
+  ssl:
+    process.env.NODE_ENV === 'production'
+      ? {
+          rejectUnauthorized: false,
+        }
+      : false,
+});
+</file>
+
+<file path="src/entities/event.entity.ts">
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
+import { User } from './user.entity';
+
+@Entity('events')
+export class Event {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  title: string;
+
+  @Column({ nullable: true })
+  description: string;
+
+  @Column()
+  date: Date;
+
+  @Column({ nullable: true })
+  time: string;
+
+  @Column()
+  userId: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @ManyToOne(() => User, (user) => user.events, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' })
+  user: User;
+}
+</file>
+
+<file path="src/entities/index.ts">
+export { User } from './user.entity';
+export { Task } from './task.entity';
+export { Project } from './project.entity';
+export { Event } from './event.entity';
+</file>
+
+<file path="src/entities/project.entity.ts">
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
+import { User } from './user.entity';
+import { Task } from './task.entity';
+
+@Entity('projects')
+export class Project {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column({ nullable: true })
+  description: string;
+
+  @Column({ default: 'active' })
+  status: string; // 'active', 'archived', 'completed'
+
+  @Column({ default: 0, type: 'int' })
+  progress: number; // 0-100
+
+  @Column()
+  userId: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @ManyToOne(() => User, (user) => user.projects, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' })
+  user: User;
+
+  @OneToMany(() => Task, (task) => task.project, { cascade: true })
+  tasks: Task[];
+}
+</file>
+
+<file path="src/entities/task.entity.ts">
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
+import { User } from './user.entity';
+import { Project } from './project.entity';
+
+@Entity('tasks')
+export class Task {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  title: string;
+
+  @Column({ nullable: true })
+  description: string;
+
+  @Column({ nullable: true })
+  dueDate: Date;
+
+  @Column({ default: 'medium' })
+  priority: string; // 'low', 'medium', 'high'
+
+  @Column({ default: 'pending' })
+  status: string; // 'pending', 'in-progress', 'completed'
+
+  @Column()
+  userId: string;
+
+  @Column({ nullable: true })
+  projectId: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @ManyToOne(() => User, (user) => user.tasks, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' })
+  user: User;
+
+  @ManyToOne(() => Project, (project) => project.tasks, { onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'projectId' })
+  project: Project;
+}
+</file>
+
+<file path="src/entities/user.entity.ts">
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+} from 'typeorm';
+import { Task } from './task.entity';
+import { Project } from './project.entity';
+import { Event } from './event.entity';
+
+@Entity('users')
+export class User {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  fullName: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  persona: string; // 'Manager' or 'Freelancer'
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @OneToMany(() => Task, (task) => task.user, { cascade: true })
+  tasks: Task[];
+
+  @OneToMany(() => Project, (project) => project.user, { cascade: true })
+  projects: Project[];
+
+  @OneToMany(() => Event, (event) => event.user, { cascade: true })
+  events: Event[];
+}
+</file>
+
+<file path="src/events/events.controller.ts">
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards, Request, Query, ValidationPipe } from '@nestjs/common';
+import { EventsService } from './events.service';
+import { CreateEventDto, UpdateEventDto } from './events.dto';
+import { JwtGuard } from '../auth/jwt.guard';
+
+@Controller('events')
+@UseGuards(JwtGuard)
+export class EventsController {
+  constructor(private eventsService: EventsService) {}
+
+  @Post()
+  async create(@Body(ValidationPipe) createEventDto: CreateEventDto, @Request() req) {
+    return this.eventsService.create(createEventDto, req.user.id);
+  }
+
+  @Get()
+  async findAll(@Request() req) {
+    return this.eventsService.findAll(req.user.id);
+  }
+
+  @Get('range')
+  async findByDateRange(
+    @Request() req,
+    @Query('startDate') startDate: string,
+    @Query('endDate') endDate: string,
+  ) {
+    return this.eventsService.findByDateRange(
+      req.user.id,
+      new Date(startDate),
+      new Date(endDate),
+    );
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string, @Request() req) {
+    return this.eventsService.findOne(id, req.user.id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body(ValidationPipe) updateEventDto: UpdateEventDto, @Request() req) {
+    return this.eventsService.update(id, updateEventDto, req.user.id);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string, @Request() req) {
+    return this.eventsService.remove(id, req.user.id);
+  }
+}
+</file>
+
+<file path="src/events/events.dto.ts">
+import { IsNotEmpty, IsOptional } from 'class-validator';
+
+export class CreateEventDto {
+  @IsNotEmpty()
+  title: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsNotEmpty()
+  date: Date;
+
+  @IsOptional()
+  time: string;
+}
+
+export class UpdateEventDto {
+  @IsOptional()
+  title: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsOptional()
+  date: Date;
+
+  @IsOptional()
+  time: string;
+}
+</file>
+
+<file path="src/events/events.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { EventsController } from './events.controller';
+import { EventsService } from './events.service';
+import { Event } from '../entities';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Event])],
+  controllers: [EventsController],
+  providers: [EventsService],
+  exports: [EventsService],
+})
+export class EventsModule {}
+</file>
+
+<file path="src/events/events.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, Between } from 'typeorm';
+import { Event } from '../entities';
+import { CreateEventDto, UpdateEventDto } from './events.dto';
+
+@Injectable()
+export class EventsService {
+  constructor(
+    @InjectRepository(Event)
+    private eventRepository: Repository<Event>,
+  ) {}
+
+  async create(createEventDto: CreateEventDto, userId: string) {
+    const event = this.eventRepository.create({
+      ...createEventDto,
+      userId,
+    });
+    return this.eventRepository.save(event);
+  }
+
+  async findAll(userId: string) {
+    return this.eventRepository.find({
+      where: { userId },
+      order: { date: 'ASC' },
+    });
+  }
+
+  async findOne(id: string, userId: string) {
+    return this.eventRepository.findOne({
+      where: { id, userId },
+    });
+  }
+
+  async findByDateRange(userId: string, startDate: Date, endDate: Date) {
+    return this.eventRepository.find({
+      where: {
+        userId,
+        date: Between(startDate, endDate),
+      },
+      order: { date: 'ASC' },
+    });
+  }
+
+  async update(id: string, updateEventDto: UpdateEventDto, userId: string) {
+    const event = await this.eventRepository.findOne({
+      where: { id, userId },
+    });
+
+    if (!event) {
+      throw new Error('Event not found');
+    }
+
+    Object.assign(event, updateEventDto);
+    return this.eventRepository.save(event);
+  }
+
+  async remove(id: string, userId: string) {
+    const event = await this.eventRepository.findOne({
+      where: { id, userId },
+    });
+
+    if (!event) {
+      throw new Error('Event not found');
+    }
+
+    return this.eventRepository.remove(event);
+  }
+}
+</file>
+
+<file path="src/gateway/realtime.gateway.ts">
+import {
+  ConnectedSocket,
+  MessageBody,
+  OnGatewayConnection,
+  OnGatewayDisconnect,
+  SubscribeMessage,
+  WebSocketGateway,
+  WebSocketServer,
+} from '@nestjs/websockets';
+import { Logger } from '@nestjs/common';
+import { Server, Socket } from 'socket.io';
+
+export type TicketUpdatedPayload = {
+  businessId: string;
+  ticketId: string;
+  status?: string;
+  priority?: string;
+  updatedAt: string;
+};
+
+export type IssueNewPayload = {
+  businessId: string;
+  issueId: string;
+  priority: string;
+  category: string;
+  createdAt: string;
+};
+
+export type TicketAssignedPayload = {
+  businessId: string;
+  ticketId: string;
+  assignedAgentId: string;
+  assignedAt: string;
+};
+
+type JoinBusinessRoomBody = {
+  businessId: string;
+};
+
+@WebSocketGateway({
+  namespace: '/realtime',
+  cors: {
+    origin: '*',
+  },
+})
+export class RealtimeGateway implements OnGatewayConnection, OnGatewayDisconnect {
+  @WebSocketServer()
+  private server!: Server;
+
+  private readonly logger = new Logger(RealtimeGateway.name);
+
+  handleConnection(client: Socket): void {
+    this.logger.debug(`Client connected: ${client.id}`);
+  }
+
+  handleDisconnect(client: Socket): void {
+    this.logger.debug(`Client disconnected: ${client.id}`);
+  }
+
+  @SubscribeMessage('business:join')
+  async joinBusinessRoom(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() body: JoinBusinessRoomBody,
+  ): Promise<{ joined: string }> {
+    const room = this.businessRoom(body.businessId);
+    await client.join(room);
+    return { joined: room };
+  }
+
+  emitTicketUpdated(payload: TicketUpdatedPayload): void {
+    this.server.to(this.businessRoom(payload.businessId)).emit('ticket:updated', payload);
+  }
+
+  emitIssueNew(payload: IssueNewPayload): void {
+    this.server.to(this.businessRoom(payload.businessId)).emit('issue:new', payload);
+  }
+
+  emitTicketAssigned(payload: TicketAssignedPayload): void {
+    this.server.to(this.businessRoom(payload.businessId)).emit('ticket:assigned', payload);
+  }
+
+  private businessRoom(businessId: string): string {
+    return `business:${businessId}`;
+  }
+}
+</file>
+
+<file path="src/issues/dto/issue-response.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { ChannelType } from 'src/common/enums/channel-type.enum';
+import { IssueStatus } from 'src/common/enums/issue-status.enum';
+import { Priority } from 'src/common/enums/priority.enum';
+import { SentimentLabel } from 'src/common/enums/sentiment-label.enum';
+
+export class IssueResponseDto {
+  @ApiProperty()
+  id!: string;
+
+  @ApiProperty()
+  businessId!: string;
+
+  @ApiProperty()
+  customerId!: string;
+
+  @ApiProperty({ enum: ChannelType })
+  channelType!: ChannelType;
+
+  @ApiProperty()
+  messagePreview!: string;
+
+  @ApiProperty({ type: 'array', items: { type: 'object', additionalProperties: true } })
+  rawMessages!: Array<Record<string, unknown>>;
+
+  @ApiProperty()
+  sentimentScore!: number;
+
+  @ApiProperty({ enum: SentimentLabel })
+  sentimentLabel!: SentimentLabel;
+
+  @ApiProperty()
+  category!: string;
+
+  @ApiProperty({ enum: Priority })
+  priority!: Priority;
+
+  @ApiProperty({ enum: IssueStatus })
+  status!: IssueStatus;
+
+  @ApiProperty()
+  aiAnalysisSummary!: string;
+
+  @ApiProperty()
+  createdAt!: Date;
+
+  @ApiProperty()
+  updatedAt!: Date;
+}
+
+export class PaginatedIssuesDto {
+  @ApiProperty({ type: [IssueResponseDto] })
+  items!: IssueResponseDto[];
+
+  @ApiProperty()
+  page!: number;
+
+  @ApiProperty()
+  limit!: number;
+
+  @ApiProperty()
+  total!: number;
+}
+</file>
+
+<file path="src/issues/dto/list-issues-query.dto.ts">
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import {
+  IsEnum,
+  IsInt,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
+import { IssueStatus } from 'src/common/enums/issue-status.enum';
+import { Priority } from 'src/common/enums/priority.enum';
+
+export class ListIssuesQueryDto {
+  @ApiPropertyOptional({ enum: Priority })
+  @IsOptional()
+  @IsEnum(Priority)
+  priority?: Priority;
+
+  @ApiPropertyOptional({ enum: IssueStatus })
+  @IsOptional()
+  @IsEnum(IssueStatus)
+  status?: IssueStatus;
+
+  @ApiPropertyOptional({ description: 'Free text search over category and message preview' })
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @ApiPropertyOptional({ default: 1, minimum: 1 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @ApiPropertyOptional({ default: 20, minimum: 1, maximum: 100 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  limit: number = 20;
+}
+</file>
+
+<file path="src/issues/dto/update-issue.dto.ts">
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IsEnum, IsOptional, IsString, MaxLength } from 'class-validator';
+import { IssueStatus } from 'src/common/enums/issue-status.enum';
+import { Priority } from 'src/common/enums/priority.enum';
+
+export class UpdateIssueDto {
+  @ApiPropertyOptional({ enum: Priority })
+  @IsOptional()
+  @IsEnum(Priority)
+  priority?: Priority;
+
+  @ApiPropertyOptional({ enum: IssueStatus })
+  @IsOptional()
+  @IsEnum(IssueStatus)
+  status?: IssueStatus;
+
+  @ApiPropertyOptional({ example: 'Delivery' })
+  @IsOptional()
+  @IsString()
+  @MaxLength(120)
+  category?: string;
+
+  @ApiPropertyOptional({ description: 'Updated AI analysis summary' })
+  @IsOptional()
+  @IsString()
+  aiAnalysisSummary?: string;
+}
+</file>
+
+<file path="src/issues/issues.controller.ts">
+import { Body, Controller, Get, Param, Patch, Query } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { IssueResponseDto, PaginatedIssuesDto } from './dto/issue-response.dto';
+import { ListIssuesQueryDto } from './dto/list-issues-query.dto';
+import { UpdateIssueDto } from './dto/update-issue.dto';
+import { IssuesService } from './issues.service';
+
+@ApiTags('Issues')
+@ApiBearerAuth()
+@Controller('issues')
+export class IssuesController {
+  constructor(private readonly issuesService: IssuesService) {}
+
+  @Get()
+  @ApiOperation({ summary: 'List issues in current business tenant scope' })
+  @ApiResponse({ status: 200, type: PaginatedIssuesDto })
+  async list(
+    @CurrentUser() user: AuthenticatedUser,
+    @Query() query: ListIssuesQueryDto,
+  ): Promise<PaginatedIssuesDto> {
+    return this.issuesService.list(user.businessId, query);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get an issue by id in current business tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: IssueResponseDto })
+  async getById(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+  ): Promise<IssueResponseDto> {
+    return this.issuesService.getById(user.businessId, id);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update issue fields in current business tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: IssueResponseDto })
+  async update(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: UpdateIssueDto,
+  ): Promise<IssueResponseDto> {
+    return this.issuesService.update(user.businessId, id, dto);
+  }
+}
+</file>
+
+<file path="src/issues/issues.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Issue } from 'src/common/entities/issue.entity';
+import { IssuesController } from './issues.controller';
+import { IssuesService } from './issues.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Issue])],
+  controllers: [IssuesController],
+  providers: [IssuesService],
+  exports: [IssuesService],
+})
+export class IssuesModule {}
+</file>
+
+<file path="src/issues/issues.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Issue } from 'src/common/entities/issue.entity';
+import { ListIssuesQueryDto } from './dto/list-issues-query.dto';
+import { IssueResponseDto, PaginatedIssuesDto } from './dto/issue-response.dto';
+import { UpdateIssueDto } from './dto/update-issue.dto';
+
+@Injectable()
+export class IssuesService {
+  constructor(
+    @InjectRepository(Issue)
+    private readonly issueRepository: Repository<Issue>,
+  ) {}
+
+  async list(businessId: string, query: ListIssuesQueryDto): Promise<PaginatedIssuesDto> {
+    const qb = this.issueRepository
+      .createQueryBuilder('issue')
+      .where('issue.businessId = :businessId', { businessId });
+
+    if (query.priority) {
+      qb.andWhere('issue.priority = :priority', { priority: query.priority });
+    }
+
+    if (query.status) {
+      qb.andWhere('issue.status = :status', { status: query.status });
+    }
+
+    if (query.search) {
+      qb.andWhere(
+        '(LOWER(issue.messagePreview) LIKE :search OR LOWER(issue.category) LIKE :search)',
+        { search: `%${query.search.toLowerCase()}%` },
+      );
+    }
+
+    const [items, total] = await qb
+      .orderBy('issue.createdAt', 'DESC')
+      .skip((query.page - 1) * query.limit)
+      .take(query.limit)
+      .getManyAndCount();
+
+    return {
+      items: items.map((issue) => this.toResponse(issue)),
+      page: query.page,
+      limit: query.limit,
+      total,
+    };
+  }
+
+  async getById(businessId: string, issueId: string): Promise<IssueResponseDto> {
+    const issue = await this.issueRepository.findOne({
+      where: { id: issueId, businessId },
+    });
+
+    if (!issue) {
+      throw new NotFoundException('Issue not found');
+    }
+
+    return this.toResponse(issue);
+  }
+
+  async update(
+    businessId: string,
+    issueId: string,
+    input: UpdateIssueDto,
+  ): Promise<IssueResponseDto> {
+    const issue = await this.issueRepository.findOne({
+      where: { id: issueId, businessId },
+    });
+
+    if (!issue) {
+      throw new NotFoundException('Issue not found');
+    }
+
+    if (input.priority) {
+      issue.priority = input.priority;
+    }
+    if (input.status) {
+      issue.status = input.status;
+    }
+    if (input.category) {
+      issue.category = input.category;
+    }
+    if (input.aiAnalysisSummary) {
+      issue.aiAnalysisSummary = input.aiAnalysisSummary;
+    }
+
+    const saved = await this.issueRepository.save(issue);
+    return this.toResponse(saved);
+  }
+
+  private toResponse(issue: Issue): IssueResponseDto {
+    return {
+      id: issue.id,
+      businessId: issue.businessId,
+      customerId: issue.customerId,
+      channelType: issue.channelType,
+      messagePreview: issue.messagePreview,
+      rawMessages: issue.rawMessages,
+      sentimentScore: issue.sentimentScore,
+      sentimentLabel: issue.sentimentLabel,
+      category: issue.category,
+      priority: issue.priority,
+      status: issue.status,
+      aiAnalysisSummary: issue.aiAnalysisSummary,
+      createdAt: issue.createdAt,
+      updatedAt: issue.updatedAt,
+    };
+  }
+}
+</file>
+
+<file path="src/messages/messages.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Message } from 'src/common/entities/message.entity';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { MessagesService } from './messages.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Message, Ticket])],
+  providers: [MessagesService],
+  exports: [MessagesService],
+})
+export class MessagesModule {}
+</file>
+
+<file path="src/messages/messages.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Message } from 'src/common/entities/message.entity';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { MessageSenderType } from 'src/common/enums/message-sender-type.enum';
+
+export type CreateMessageInput = {
+  ticketId: string;
+  senderId: string;
+  senderType: MessageSenderType;
+  content: string;
+  attachmentUrl?: string | null;
+  isInternalNote?: boolean;
+};
+
+@Injectable()
+export class MessagesService {
+  constructor(
+    @InjectRepository(Message)
+    private readonly messageRepository: Repository<Message>,
+    @InjectRepository(Ticket)
+    private readonly ticketRepository: Repository<Ticket>,
+  ) {}
+
+  async getByTicket(businessId: string, ticketId: string): Promise<Message[]> {
+    const ticket = await this.ticketRepository.findOne({ where: { id: ticketId, businessId } });
+    if (!ticket) {
+      throw new NotFoundException('Ticket not found');
+    }
+
+    return this.messageRepository.find({
+      where: { ticketId },
+      order: { createdAt: 'ASC' },
+    });
+  }
+
+  async create(businessId: string, input: CreateMessageInput): Promise<Message> {
+    const ticket = await this.ticketRepository.findOne({
+      where: { id: input.ticketId, businessId },
+    });
+    if (!ticket) {
+      throw new NotFoundException('Ticket not found');
+    }
+
+    const message = this.messageRepository.create({
+      ticketId: input.ticketId,
+      senderId: input.senderId,
+      senderType: input.senderType,
+      content: input.content,
+      attachmentUrl: input.attachmentUrl ?? null,
+      isInternalNote: input.isInternalNote ?? false,
+    });
+    return this.messageRepository.save(message);
+  }
+}
+</file>
+
+<file path="src/projects/projects.controller.ts">
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards, Request, Query, ValidationPipe } from '@nestjs/common';
+import { ProjectsService } from './projects.service';
+import { CreateProjectDto, UpdateProjectDto } from './projects.dto';
+import { JwtGuard } from '../auth/jwt.guard';
+
+@Controller('projects')
+@UseGuards(JwtGuard)
+export class ProjectsController {
+  constructor(private projectsService: ProjectsService) {}
+
+  @Post()
+  async create(@Body(ValidationPipe) createProjectDto: CreateProjectDto, @Request() req) {
+    return this.projectsService.create(createProjectDto, req.user.id);
+  }
+
+  @Get()
+  async findAll(@Request() req, @Query('status') status?: string) {
+    return this.projectsService.findAll(req.user.id, status);
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string, @Request() req) {
+    return this.projectsService.findOne(id, req.user.id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body(ValidationPipe) updateProjectDto: UpdateProjectDto, @Request() req) {
+    return this.projectsService.update(id, updateProjectDto, req.user.id);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string, @Request() req) {
+    return this.projectsService.remove(id, req.user.id);
+  }
+}
+</file>
+
+<file path="src/projects/projects.dto.ts">
+import { IsNotEmpty, IsOptional, IsIn } from 'class-validator';
+
+export class CreateProjectDto {
+  @IsNotEmpty()
+  name: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsOptional()
+  progress: number = 0;
+}
+
+export class UpdateProjectDto {
+  @IsOptional()
+  name: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsOptional()
+  progress: number;
+
+  @IsOptional()
+  @IsIn(['active', 'archived', 'completed'])
+  status: string;
+}
+</file>
+
+<file path="src/projects/projects.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProjectsController } from './projects.controller';
+import { ProjectsService } from './projects.service';
+import { Project } from '../entities';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Project])],
+  controllers: [ProjectsController],
+  providers: [ProjectsService],
+  exports: [ProjectsService],
+})
+export class ProjectsModule {}
+</file>
+
+<file path="src/projects/projects.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Project } from '../entities';
+import { CreateProjectDto, UpdateProjectDto } from './projects.dto';
+
+@Injectable()
+export class ProjectsService {
+  constructor(
+    @InjectRepository(Project)
+    private projectRepository: Repository<Project>,
+  ) {}
+
+  async create(createProjectDto: CreateProjectDto, userId: string) {
+    const project = this.projectRepository.create({
+      ...createProjectDto,
+      userId,
+      status: 'active',
+    });
+    return this.projectRepository.save(project);
+  }
+
+  async findAll(userId: string, status?: string) {
+    const query = this.projectRepository.createQueryBuilder('project')
+      .where('project.userId = :userId', { userId });
+
+    if (status) {
+      query.andWhere('project.status = :status', { status });
+    }
+
+    return query.orderBy('project.createdAt', 'DESC').getMany();
+  }
+
+  async findOne(id: string, userId: string) {
+    return this.projectRepository.findOne({
+      where: { id, userId },
+      relations: ['tasks'],
+    });
+  }
+
+  async update(id: string, updateProjectDto: UpdateProjectDto, userId: string) {
+    const project = await this.projectRepository.findOne({
+      where: { id, userId },
+    });
+
+    if (!project) {
+      throw new Error('Project not found');
+    }
+
+    Object.assign(project, updateProjectDto);
+    return this.projectRepository.save(project);
+  }
+
+  async remove(id: string, userId: string) {
+    const project = await this.projectRepository.findOne({
+      where: { id, userId },
+    });
+
+    if (!project) {
+      throw new Error('Project not found');
+    }
+
+    return this.projectRepository.remove(project);
+  }
+}
+</file>
+
+<file path="src/tasks/tasks.controller.ts">
+import { Controller, Get, Post, Body, Param, Put, Delete, Patch, UseGuards, Request, Query, ValidationPipe } from '@nestjs/common';
+import { TasksService } from './tasks.service';
+import { CreateTaskDto, UpdateTaskDto } from './tasks.dto';
+import { JwtGuard } from '../auth/jwt.guard';
+
+@Controller('tasks')
+@UseGuards(JwtGuard)
+export class TasksController {
+  constructor(private tasksService: TasksService) {}
+
+  @Post()
+  async create(@Body(ValidationPipe) createTaskDto: CreateTaskDto, @Request() req) {
+    return this.tasksService.create(createTaskDto, req.user.id);
+  }
+
+  @Get()
+  async findAll(@Request() req, @Query('status') status?: string) {
+    return this.tasksService.findAll(req.user.id, status);
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string, @Request() req) {
+    return this.tasksService.findOne(id, req.user.id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body(ValidationPipe) updateTaskDto: UpdateTaskDto, @Request() req) {
+    return this.tasksService.update(id, updateTaskDto, req.user.id);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string, @Request() req) {
+    return this.tasksService.remove(id, req.user.id);
+  }
+
+  @Patch(':id/complete')
+  async complete(@Param('id') id: string, @Request() req) {
+    return this.tasksService.complete(id, req.user.id);
+  }
+
+  @Get('project/:projectId')
+  async getTasksByProject(@Param('projectId') projectId: string, @Request() req) {
+    return this.tasksService.getTasksByProject(projectId, req.user.id);
+  }
+}
+</file>
+
+<file path="src/tasks/tasks.dto.ts">
+import { IsNotEmpty, IsOptional, IsIn } from 'class-validator';
+
+export class CreateTaskDto {
+  @IsNotEmpty()
+  title: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsOptional()
+  dueDate: Date;
+
+  @IsOptional()
+  @IsIn(['low', 'medium', 'high'])
+  priority: string = 'medium';
+
+  @IsOptional()
+  projectId: string;
+}
+
+export class UpdateTaskDto {
+  @IsOptional()
+  title: string;
+
+  @IsOptional()
+  description: string;
+
+  @IsOptional()
+  dueDate: Date;
+
+  @IsOptional()
+  @IsIn(['low', 'medium', 'high'])
+  priority: string;
+
+  @IsOptional()
+  @IsIn(['pending', 'in-progress', 'completed'])
+  status: string;
+}
+</file>
+
+<file path="src/tasks/tasks.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TasksController } from './tasks.controller';
+import { TasksService } from './tasks.service';
+import { Task } from '../entities';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Task])],
+  controllers: [TasksController],
+  providers: [TasksService],
+  exports: [TasksService],
+})
+export class TasksModule {}
+</file>
+
+<file path="src/tasks/tasks.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Task } from '../entities';
+import { CreateTaskDto, UpdateTaskDto } from './tasks.dto';
+
+@Injectable()
+export class TasksService {
+  constructor(
+    @InjectRepository(Task)
+    private taskRepository: Repository<Task>,
+  ) {}
+
+  async create(createTaskDto: CreateTaskDto, userId: string) {
+    const task = this.taskRepository.create({
+      ...createTaskDto,
+      userId,
+      status: 'pending',
+    });
+    return this.taskRepository.save(task);
+  }
+
+  async findAll(userId: string, status?: string) {
+    const query = this.taskRepository.createQueryBuilder('task')
+      .where('task.userId = :userId', { userId });
+
+    if (status) {
+      query.andWhere('task.status = :status', { status });
+    }
+
+    return query.orderBy('task.createdAt', 'DESC').getMany();
+  }
+
+  async findOne(id: string, userId: string) {
+    return this.taskRepository.findOne({
+      where: { id, userId },
+    });
+  }
+
+  async update(id: string, updateTaskDto: UpdateTaskDto, userId: string) {
+    const task = await this.findOne(id, userId);
+    if (!task) {
+      throw new Error('Task not found');
+    }
+
+    Object.assign(task, updateTaskDto);
+    return this.taskRepository.save(task);
+  }
+
+  async remove(id: string, userId: string) {
+    const task = await this.findOne(id, userId);
+    if (!task) {
+      throw new Error('Task not found');
+    }
+
+    return this.taskRepository.remove(task);
+  }
+
+  async complete(id: string, userId: string) {
+    return this.update(id, { status: 'completed' } as UpdateTaskDto, userId);
+  }
+
+  async getTasksByProject(projectId: string, userId: string) {
+    return this.taskRepository.find({
+      where: { projectId, userId },
+      order: { createdAt: 'DESC' },
+    });
+  }
+}
+</file>
+
+<file path="src/tickets/dto/add-ticket-message.dto.ts">
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsBoolean, IsEnum, IsOptional, IsString, MaxLength } from 'class-validator';
+import { MessageSenderType } from 'src/common/enums/message-sender-type.enum';
+
+export class AddTicketMessageDto {
+  @ApiProperty({ example: 'We have escalated your case and will update shortly.' })
+  @IsString()
+  @MaxLength(5000)
+  content!: string;
+
+  @ApiPropertyOptional({ example: null })
+  @IsOptional()
+  @IsString()
+  attachmentUrl?: string;
+
+  @ApiPropertyOptional({ enum: MessageSenderType, default: MessageSenderType.AGENT })
+  @IsOptional()
+  @IsEnum(MessageSenderType)
+  senderType?: MessageSenderType;
+
+  @ApiPropertyOptional({ default: false })
+  @IsOptional()
+  @IsBoolean()
+  isInternalNote?: boolean;
+}
+</file>
+
+<file path="src/tickets/dto/assign-ticket.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsUUID } from 'class-validator';
+
+export class AssignTicketDto {
+  @ApiProperty()
+  @IsUUID()
+  assignedAgentId!: string;
+}
+</file>
+
+<file path="src/tickets/dto/create-ticket.dto.ts">
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsEnum,
+  IsOptional,
+  IsString,
+  IsUUID,
+  MaxLength,
+  ValidateNested,
+} from 'class-validator';
+import { Priority } from 'src/common/enums/priority.enum';
+
+class InitialMessageDto {
+  @ApiProperty({ example: 'Customer requested urgent update on shipment status.' })
+  @IsString()
+  @MaxLength(5000)
+  content!: string;
+
+  @ApiPropertyOptional({ example: null })
+  @IsOptional()
+  @IsString()
+  attachmentUrl?: string;
+}
+
+export class CreateTicketDto {
+  @ApiProperty()
+  @IsUUID()
+  issueId!: string;
+
+  @ApiProperty()
+  @IsUUID()
+  customerId!: string;
+
+  @ApiProperty({ example: 'Delayed order delivery in Surulere' })
+  @IsString()
+  @MaxLength(180)
+  title!: string;
+
+  @ApiProperty({ example: 'Delivery' })
+  @IsString()
+  @MaxLength(120)
+  category!: string;
+
+  @ApiProperty({ enum: Priority })
+  @IsEnum(Priority)
+  priority!: Priority;
+
+  @ApiPropertyOptional({ example: 'Draft summary generated by AI...' })
+  @IsOptional()
+  @IsString()
+  aiDraftSummary?: string;
+
+  @ApiPropertyOptional({ example: 'Sentiment trending from frustrated to neutral...' })
+  @IsOptional()
+  @IsString()
+  aiInsightSummary?: string;
+
+  @ApiPropertyOptional({ type: [String] })
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  internalNotes?: string[];
+
+  @ApiPropertyOptional({ description: 'Optional agent assignment at creation' })
+  @IsOptional()
+  @IsUUID()
+  assignedAgentId?: string;
+
+  @ApiPropertyOptional({ type: [InitialMessageDto] })
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => InitialMessageDto)
+  initialMessages?: InitialMessageDto[];
+}
+
+export type CreateTicketInitialMessage = {
+  content: string;
+  attachmentUrl?: string;
+};
+</file>
+
+<file path="src/tickets/dto/list-tickets-query.dto.ts">
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import { IsBoolean, IsEnum, IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
+import { Priority } from 'src/common/enums/priority.enum';
+import { TicketStatus } from 'src/common/enums/ticket-status.enum';
+
+export class ListTicketsQueryDto {
+  @ApiPropertyOptional({ enum: TicketStatus })
+  @IsOptional()
+  @IsEnum(TicketStatus)
+  status?: TicketStatus;
+
+  @ApiPropertyOptional({ enum: Priority })
+  @IsOptional()
+  @IsEnum(Priority)
+  priority?: Priority;
+
+  @ApiPropertyOptional({ description: 'Filter to only tickets assigned to current user' })
+  @IsOptional()
+  @Type(() => Boolean)
+  @IsBoolean()
+  mine?: boolean;
+
+  @ApiPropertyOptional({ description: 'Filter to unassigned tickets only' })
+  @IsOptional()
+  @Type(() => Boolean)
+  @IsBoolean()
+  unassigned?: boolean;
+
+  @ApiPropertyOptional({ description: 'Free text search over ticket title/category/number' })
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @ApiPropertyOptional({ default: 1, minimum: 1 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @ApiPropertyOptional({ default: 20, minimum: 1, maximum: 100 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  limit: number = 20;
+}
+</file>
+
+<file path="src/tickets/dto/resolve-ticket.dto.ts">
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsOptional, IsString, MaxLength } from 'class-validator';
+
+export class ResolveTicketDto {
+  @ApiProperty({ example: 'Issue resolved after logistics confirmation and customer follow-up.' })
+  @IsString()
+  @MaxLength(10000)
+  resolutionSummary!: string;
+
+  @ApiPropertyOptional({ example: 'frustrated' })
+  @IsOptional()
+  @IsString()
+  sentimentShiftStart?: string;
+
+  @ApiPropertyOptional({ example: 'positive' })
+  @IsOptional()
+  @IsString()
+  sentimentShiftEnd?: string;
+}
+</file>
+
+<file path="src/tickets/dto/ticket-response.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { MessageSenderType } from 'src/common/enums/message-sender-type.enum';
+import { Priority } from 'src/common/enums/priority.enum';
+import { TicketStatus } from 'src/common/enums/ticket-status.enum';
+
+export class TicketMessageResponseDto {
+  @ApiProperty()
+  id!: string;
+
+  @ApiProperty()
+  ticketId!: string;
+
+  @ApiProperty()
+  senderId!: string;
+
+  @ApiProperty({ enum: MessageSenderType })
+  senderType!: MessageSenderType;
+
+  @ApiProperty()
+  content!: string;
+
+  @ApiProperty({ nullable: true })
+  attachmentUrl!: string | null;
+
+  @ApiProperty()
+  isInternalNote!: boolean;
+
+  @ApiProperty()
+  createdAt!: Date;
+}
+
+export class TicketResponseDto {
+  @ApiProperty()
+  id!: string;
+
+  @ApiProperty()
+  businessId!: string;
+
+  @ApiProperty()
+  issueId!: string;
+
+  @ApiProperty()
+  customerId!: string;
+
+  @ApiProperty()
+  ticketNumber!: string;
+
+  @ApiProperty()
+  title!: string;
+
+  @ApiProperty()
+  category!: string;
+
+  @ApiProperty({ enum: Priority })
+  priority!: Priority;
+
+  @ApiProperty({ enum: TicketStatus })
+  status!: TicketStatus;
+
+  @ApiProperty({ nullable: true })
+  assignedAgentId!: string | null;
+
+  @ApiProperty()
+  aiDraftSummary!: string;
+
+  @ApiProperty()
+  aiInsightSummary!: string;
+
+  @ApiProperty({ type: [String] })
+  internalNotes!: string[];
+
+  @ApiProperty({ nullable: true })
+  resolvedAt!: Date | null;
+
+  @ApiProperty({ nullable: true })
+  resolutionSummary!: string | null;
+
+  @ApiProperty({ nullable: true })
+  sentimentShiftStart!: string | null;
+
+  @ApiProperty({ nullable: true })
+  sentimentShiftEnd!: string | null;
+
+  @ApiProperty()
+  createdAt!: Date;
+
+  @ApiProperty()
+  updatedAt!: Date;
+
+  @ApiProperty({ type: [TicketMessageResponseDto] })
+  messages!: TicketMessageResponseDto[];
+}
+
+export class PaginatedTicketsDto {
+  @ApiProperty({ type: [TicketResponseDto] })
+  items!: TicketResponseDto[];
+
+  @ApiProperty()
+  page!: number;
+
+  @ApiProperty()
+  limit!: number;
+
+  @ApiProperty()
+  total!: number;
+}
+</file>
+
+<file path="src/tickets/dto/update-ticket-status.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum } from 'class-validator';
+import { TicketStatus } from 'src/common/enums/ticket-status.enum';
+
+export class UpdateTicketStatusDto {
+  @ApiProperty({ enum: TicketStatus })
+  @IsEnum(TicketStatus)
+  status!: TicketStatus;
+}
+</file>
+
+<file path="src/tickets/tickets.controller.ts">
+import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { AddTicketMessageDto } from './dto/add-ticket-message.dto';
+import { AssignTicketDto } from './dto/assign-ticket.dto';
+import { CreateTicketDto } from './dto/create-ticket.dto';
+import { ListTicketsQueryDto } from './dto/list-tickets-query.dto';
+import { ResolveTicketDto } from './dto/resolve-ticket.dto';
+import {
+  PaginatedTicketsDto,
+  TicketMessageResponseDto,
+  TicketResponseDto,
+} from './dto/ticket-response.dto';
+import { UpdateTicketStatusDto } from './dto/update-ticket-status.dto';
+import { TicketsService } from './tickets.service';
+
+@ApiTags('Tickets')
+@ApiBearerAuth()
+@Controller('tickets')
+export class TicketsController {
+  constructor(private readonly ticketsService: TicketsService) {}
+
+  @Post()
+  @ApiOperation({ summary: 'Create a ticket in current business tenant scope' })
+  @ApiResponse({ status: 201, type: TicketResponseDto })
+  async create(
+    @CurrentUser() user: AuthenticatedUser,
+    @Body() dto: CreateTicketDto,
+  ): Promise<TicketResponseDto> {
+    return this.ticketsService.create(user.businessId, user, dto);
+  }
+
+  @Get()
+  @ApiOperation({ summary: 'List tickets in current business tenant scope' })
+  @ApiResponse({ status: 200, type: PaginatedTicketsDto })
+  async list(
+    @CurrentUser() user: AuthenticatedUser,
+    @Query() query: ListTicketsQueryDto,
+  ): Promise<PaginatedTicketsDto> {
+    return this.ticketsService.list(user.businessId, user, query);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get ticket detail (workspace payload) in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: TicketResponseDto })
+  async getById(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+  ): Promise<TicketResponseDto> {
+    return this.ticketsService.getById(user.businessId, id);
+  }
+
+  @Patch(':id/status')
+  @ApiOperation({ summary: 'Update ticket status in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: TicketResponseDto })
+  async updateStatus(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: UpdateTicketStatusDto,
+  ): Promise<TicketResponseDto> {
+    return this.ticketsService.updateStatus(user.businessId, id, dto);
+  }
+
+  @Post(':id/assign')
+  @ApiOperation({ summary: 'Assign ticket to an agent in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: TicketResponseDto })
+  async assign(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: AssignTicketDto,
+  ): Promise<TicketResponseDto> {
+    return this.ticketsService.assign(user.businessId, id, dto);
+  }
+
+  @Post(':id/messages')
+  @ApiOperation({ summary: 'Post ticket message in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 201, type: TicketMessageResponseDto })
+  async addMessage(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: AddTicketMessageDto,
+  ): Promise<TicketMessageResponseDto> {
+    return this.ticketsService.addMessage(user.businessId, id, user, dto);
+  }
+
+  @Post(':id/resolve')
+  @ApiOperation({ summary: 'Resolve ticket and save resolution summary in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiResponse({ status: 200, type: TicketResponseDto })
+  async resolve(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: ResolveTicketDto,
+  ): Promise<TicketResponseDto> {
+    return this.ticketsService.resolve(user.businessId, id, dto);
+  }
+}
+</file>
+
+<file path="src/tickets/tickets.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Customer } from 'src/common/entities/customer.entity';
+import { Issue } from 'src/common/entities/issue.entity';
+import { Message } from 'src/common/entities/message.entity';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { User } from 'src/common/entities/user.entity';
+import { TicketsController } from './tickets.controller';
+import { TicketsService } from './tickets.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Ticket, Issue, Customer, User, Message])],
+  controllers: [TicketsController],
+  providers: [TicketsService],
+  exports: [TicketsService],
+})
+export class TicketsModule {}
+</file>
+
+<file path="src/tickets/tickets.service.ts">
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Customer } from 'src/common/entities/customer.entity';
+import { Issue } from 'src/common/entities/issue.entity';
+import { Message } from 'src/common/entities/message.entity';
+import { Ticket } from 'src/common/entities/ticket.entity';
+import { User } from 'src/common/entities/user.entity';
+import { IssueStatus } from 'src/common/enums/issue-status.enum';
+import { MessageSenderType } from 'src/common/enums/message-sender-type.enum';
+import { TicketStatus } from 'src/common/enums/ticket-status.enum';
+import { UserRole } from 'src/common/enums/user-role.enum';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { AddTicketMessageDto } from './dto/add-ticket-message.dto';
+import { AssignTicketDto } from './dto/assign-ticket.dto';
+import { CreateTicketDto } from './dto/create-ticket.dto';
+import { ListTicketsQueryDto } from './dto/list-tickets-query.dto';
+import { ResolveTicketDto } from './dto/resolve-ticket.dto';
+import {
+  PaginatedTicketsDto,
+  TicketMessageResponseDto,
+  TicketResponseDto,
+} from './dto/ticket-response.dto';
+import { UpdateTicketStatusDto } from './dto/update-ticket-status.dto';
+
+@Injectable()
+export class TicketsService {
+  constructor(
+    @InjectRepository(Ticket)
+    private readonly ticketRepository: Repository<Ticket>,
+    @InjectRepository(Issue)
+    private readonly issueRepository: Repository<Issue>,
+    @InjectRepository(Customer)
+    private readonly customerRepository: Repository<Customer>,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+    @InjectRepository(Message)
+    private readonly messageRepository: Repository<Message>,
+  ) {}
+
+  async create(
+    businessId: string,
+    actor: AuthenticatedUser,
+    input: CreateTicketDto,
+  ): Promise<TicketResponseDto> {
+    const issue = await this.issueRepository.findOne({
+      where: { id: input.issueId, businessId },
+    });
+    if (!issue) {
+      throw new NotFoundException('Issue not found in tenant scope');
+    }
+
+    const customer = await this.customerRepository.findOne({
+      where: { id: input.customerId, businessId },
+    });
+    if (!customer) {
+      throw new NotFoundException('Customer not found in tenant scope');
+    }
+
+    if (input.assignedAgentId) {
+      await this.assertAssignableAgent(businessId, input.assignedAgentId);
+    }
+
+    const ticketNumber = await this.generateUniqueTicketNumber();
+    const created = this.ticketRepository.create({
+      businessId,
+      issueId: issue.id,
+      customerId: customer.id,
+      ticketNumber,
+      title: input.title,
+      category: input.category,
+      priority: input.priority,
+      status: TicketStatus.OPEN,
+      assignedAgentId: input.assignedAgentId ?? null,
+      aiDraftSummary: input.aiDraftSummary ?? '',
+      aiInsightSummary: input.aiInsightSummary ?? '',
+      internalNotes: input.internalNotes ?? [],
+      resolvedAt: null,
+      resolutionSummary: null,
+      sentimentShiftStart: null,
+      sentimentShiftEnd: null,
+    });
+
+    const savedTicket = await this.ticketRepository.save(created);
+
+    if (input.initialMessages && input.initialMessages.length > 0) {
+      const initialMessages = input.initialMessages.map((message) =>
+        this.messageRepository.create({
+          ticketId: savedTicket.id,
+          senderId: actor.userId,
+          senderType: MessageSenderType.AGENT,
+          content: message.content,
+          attachmentUrl: message.attachmentUrl ?? null,
+          isInternalNote: false,
+        }),
+      );
+      await this.messageRepository.save(initialMessages);
+    }
+
+    if (issue.status !== IssueStatus.CONVERTED) {
+      issue.status = IssueStatus.CONVERTED;
+      await this.issueRepository.save(issue);
+    }
+
+    return this.getById(businessId, savedTicket.id);
+  }
+
+  async list(
+    businessId: string,
+    actor: AuthenticatedUser,
+    query: ListTicketsQueryDto,
+  ): Promise<PaginatedTicketsDto> {
+    const qb = this.ticketRepository
+      .createQueryBuilder('ticket')
+      .leftJoinAndSelect('ticket.messages', 'message')
+      .where('ticket.businessId = :businessId', { businessId });
+
+    if (query.status) {
+      qb.andWhere('ticket.status = :status', { status: query.status });
+    }
+
+    if (query.priority) {
+      qb.andWhere('ticket.priority = :priority', { priority: query.priority });
+    }
+
+    if (query.mine) {
+      qb.andWhere('ticket.assignedAgentId = :assignedAgentId', {
+        assignedAgentId: actor.userId,
+      });
+    }
+
+    if (query.unassigned) {
+      qb.andWhere('ticket.assignedAgentId IS NULL');
+    }
+
+    if (query.search) {
+      qb.andWhere(
+        '(LOWER(ticket.ticketNumber) LIKE :search OR LOWER(ticket.title) LIKE :search OR LOWER(ticket.category) LIKE :search)',
+        { search: `%${query.search.toLowerCase()}%` },
+      );
+    }
+
+    const [items, total] = await qb
+      .orderBy('ticket.createdAt', 'DESC')
+      .addOrderBy('message.createdAt', 'ASC')
+      .skip((query.page - 1) * query.limit)
+      .take(query.limit)
+      .getManyAndCount();
+
+    return {
+      items: items.map((ticket) => this.toResponse(ticket)),
+      page: query.page,
+      limit: query.limit,
+      total,
+    };
+  }
+
+  async getById(businessId: string, ticketId: string): Promise<TicketResponseDto> {
+    const ticket = await this.ticketRepository.findOne({
+      where: { id: ticketId, businessId },
+      relations: { messages: true },
+      order: { messages: { createdAt: 'ASC' } },
+    });
+
+    if (!ticket) {
+      throw new NotFoundException('Ticket not found');
+    }
+
+    return this.toResponse(ticket);
+  }
+
+  async updateStatus(
+    businessId: string,
+    ticketId: string,
+    input: UpdateTicketStatusDto,
+  ): Promise<TicketResponseDto> {
+    const ticket = await this.findTenantTicket(businessId, ticketId);
+
+    ticket.status = input.status;
+    if (input.status !== TicketStatus.RESOLVED) {
+      ticket.resolvedAt = null;
+    }
+
+    const saved = await this.ticketRepository.save(ticket);
+    return this.toResponse(saved);
+  }
+
+  async assign(
+    businessId: string,
+    ticketId: string,
+    input: AssignTicketDto,
+  ): Promise<TicketResponseDto> {
+    const ticket = await this.findTenantTicket(businessId, ticketId);
+    await this.assertAssignableAgent(businessId, input.assignedAgentId);
+
+    ticket.assignedAgentId = input.assignedAgentId;
+    const saved = await this.ticketRepository.save(ticket);
+    return this.toResponse(saved);
+  }
+
+  async addMessage(
+    businessId: string,
+    ticketId: string,
+    actor: AuthenticatedUser,
+    input: AddTicketMessageDto,
+  ): Promise<TicketMessageResponseDto> {
+    await this.findTenantTicket(businessId, ticketId);
+
+    const senderType = input.senderType ?? MessageSenderType.AGENT;
+    if (senderType !== MessageSenderType.AGENT && actor.role === UserRole.AGENT) {
+      throw new BadRequestException('Agents can only create agent messages');
+    }
+
+    const message = this.messageRepository.create({
+      ticketId,
+      senderId: actor.userId,
+      senderType,
+      content: input.content,
+      attachmentUrl: input.attachmentUrl ?? null,
+      isInternalNote: input.isInternalNote ?? false,
+    });
+
+    const saved = await this.messageRepository.save(message);
+    return this.toMessageResponse(saved);
+  }
+
+  async resolve(
+    businessId: string,
+    ticketId: string,
+    input: ResolveTicketDto,
+  ): Promise<TicketResponseDto> {
+    const ticket = await this.findTenantTicket(businessId, ticketId);
+
+    ticket.status = TicketStatus.RESOLVED;
+    ticket.resolvedAt = new Date();
+    ticket.resolutionSummary = input.resolutionSummary;
+    ticket.sentimentShiftStart = input.sentimentShiftStart ?? ticket.sentimentShiftStart;
+    ticket.sentimentShiftEnd = input.sentimentShiftEnd ?? ticket.sentimentShiftEnd;
+
+    const saved = await this.ticketRepository.save(ticket);
+    return this.toResponse(saved);
+  }
+
+  private async findTenantTicket(businessId: string, ticketId: string): Promise<Ticket> {
+    const ticket = await this.ticketRepository.findOne({
+      where: { id: ticketId, businessId },
+      relations: { messages: true },
+      order: { messages: { createdAt: 'ASC' } },
+    });
+    if (!ticket) {
+      throw new NotFoundException('Ticket not found');
+    }
+    return ticket;
+  }
+
+  private async assertAssignableAgent(businessId: string, assignedAgentId: string): Promise<void> {
+    const user = await this.userRepository.findOne({
+      where: { id: assignedAgentId, businessId },
+    });
+    if (!user) {
+      throw new BadRequestException('Assigned agent not found in tenant scope');
+    }
+  }
+
+  private toMessageResponse(message: Message): TicketMessageResponseDto {
+    return {
+      id: message.id,
+      ticketId: message.ticketId,
+      senderId: message.senderId,
+      senderType: message.senderType,
+      content: message.content,
+      attachmentUrl: message.attachmentUrl,
+      isInternalNote: message.isInternalNote,
+      createdAt: message.createdAt,
+    };
+  }
+
+  private toResponse(ticket: Ticket): TicketResponseDto {
+    return {
+      id: ticket.id,
+      businessId: ticket.businessId,
+      issueId: ticket.issueId,
+      customerId: ticket.customerId,
+      ticketNumber: ticket.ticketNumber,
+      title: ticket.title,
+      category: ticket.category,
+      priority: ticket.priority,
+      status: ticket.status,
+      assignedAgentId: ticket.assignedAgentId,
+      aiDraftSummary: ticket.aiDraftSummary,
+      aiInsightSummary: ticket.aiInsightSummary,
+      internalNotes: ticket.internalNotes,
+      resolvedAt: ticket.resolvedAt,
+      resolutionSummary: ticket.resolutionSummary,
+      sentimentShiftStart: ticket.sentimentShiftStart,
+      sentimentShiftEnd: ticket.sentimentShiftEnd,
+      createdAt: ticket.createdAt,
+      updatedAt: ticket.updatedAt,
+      messages: (ticket.messages ?? []).map((message) => this.toMessageResponse(message)),
+    };
+  }
+
+  private async generateUniqueTicketNumber(): Promise<string> {
+    for (let i = 0; i < 10; i += 1) {
+      const randomSegment = Math.floor(1000 + Math.random() * 9000);
+      const ticketNumber = `TCK-${randomSegment}`;
+      const exists = await this.ticketRepository.findOne({ where: { ticketNumber } });
+      if (!exists) {
+        return ticketNumber;
+      }
+    }
+    throw new BadRequestException('Could not generate unique ticket number, try again');
+  }
+}
+</file>
+
+<file path="src/users/dto/invite-user.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsEnum, IsNotEmpty, IsString, MinLength } from 'class-validator';
+import { UserRole } from 'src/common/enums/user-role.enum';
+
+export class InviteUserDto {
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  firstName!: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  lastName!: string;
+
+  @ApiProperty()
+  @IsEmail()
+  email!: string;
+
+  @ApiProperty({ enum: UserRole, default: UserRole.AGENT })
+  @IsEnum(UserRole)
+  role!: UserRole;
+
+  @ApiProperty({ minLength: 8 })
+  @IsString()
+  @MinLength(8)
+  temporaryPassword!: string;
+}
+</file>
+
+<file path="src/users/dto/update-user.dto.ts">
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IsBoolean, IsEnum, IsOptional, IsString } from 'class-validator';
+import { UserRole } from 'src/common/enums/user-role.enum';
+
+export class UpdateUserDto {
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  firstName?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  lastName?: string;
+
+  @ApiPropertyOptional({ enum: UserRole })
+  @IsOptional()
+  @IsEnum(UserRole)
+  role?: UserRole;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsBoolean()
+  isOnline?: boolean;
+}
+</file>
+
+<file path="src/users/users.controller.ts">
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { AuthenticatedUser } from 'src/auth/types/authenticated-user.type';
+import { User } from 'src/common/entities/user.entity';
+import { InviteUserDto } from './dto/invite-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { UsersService } from './users.service';
+
+@ApiTags('Users')
+@ApiBearerAuth()
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  @ApiOperation({ summary: 'List users in current business' })
+  @ApiResponse({ status: 200, type: [User] })
+  async list(@CurrentUser() user: AuthenticatedUser): Promise<User[]> {
+    return this.usersService.list(user.businessId);
+  }
+
+  @Post('invite')
+  @ApiOperation({ summary: 'Invite a new agent/admin user in current business' })
+  @ApiResponse({ status: 201, type: User })
+  async invite(
+    @CurrentUser() user: AuthenticatedUser,
+    @Body() dto: InviteUserDto,
+  ): Promise<User> {
+    return this.usersService.invite(user.businessId, dto);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update user profile/status in current business' })
+  @ApiResponse({ status: 200, type: User })
+  async update(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() dto: UpdateUserDto,
+  ): Promise<User> {
+    return this.usersService.update(user.businessId, id, dto);
+  }
+}
+</file>
+
+<file path="src/users/users.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from 'src/common/entities/user.entity';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [UsersService],
+})
+export class UsersModule {}
+</file>
+
+<file path="src/users/users.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as bcrypt from 'bcryptjs';
+import { Repository } from 'typeorm';
+import { User } from 'src/common/entities/user.entity';
+import { InviteUserDto } from './dto/invite-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) {}
+
+  async list(businessId: string): Promise<User[]> {
+    return this.userRepository.find({
+      where: { businessId },
+      order: { createdAt: 'DESC' },
+    });
+  }
+
+  async invite(businessId: string, dto: InviteUserDto): Promise<User> {
+    const passwordHash = await bcrypt.hash(dto.temporaryPassword, 12);
+    const user = this.userRepository.create({
+      businessId,
+      firstName: dto.firstName,
+      lastName: dto.lastName,
+      email: dto.email.toLowerCase(),
+      passwordHash,
+      role: dto.role,
+      isOnline: false,
+      lastSeenAt: null,
+    });
+    return this.userRepository.save(user);
+  }
+
+  async update(businessId: string, userId: string, dto: UpdateUserDto): Promise<User> {
+    const user = await this.userRepository.findOne({ where: { id: userId, businessId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (dto.firstName !== undefined) user.firstName = dto.firstName;
+    if (dto.lastName !== undefined) user.lastName = dto.lastName;
+    if (dto.role !== undefined) user.role = dto.role;
+    if (dto.isOnline !== undefined) user.isOnline = dto.isOnline;
+
+    return this.userRepository.save(user);
+  }
+}
+</file>
+
+<file path="src/webhooks/dto/inbound-webhook.dto.ts">
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsObject, IsString } from 'class-validator';
+
+export class InboundWebhookDto {
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  eventId!: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  source!: string;
+
+  @ApiProperty({ type: 'object', additionalProperties: true })
+  @IsObject()
+  payload!: Record<string, unknown>;
+}
+</file>
+
+<file path="src/webhooks/webhooks.controller.ts">
+import { Body, Controller, Post } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { InboundWebhookDto } from './dto/inbound-webhook.dto';
+
+type WebhookAck = {
+  accepted: boolean;
+  provider: 'whatsapp' | 'instagram';
+  eventId: string;
+};
+
+@ApiTags('Webhooks')
+@ApiBearerAuth()
+@Controller('webhooks')
+export class WebhooksController {
+  @Post('whatsapp')
+  @ApiOperation({ summary: 'Receive WhatsApp webhook events' })
+  @ApiResponse({ status: 201 })
+  async whatsapp(@Body() dto: InboundWebhookDto): Promise<WebhookAck> {
+    return { accepted: true, provider: 'whatsapp', eventId: dto.eventId };
+  }
+
+  @Post('instagram')
+  @ApiOperation({ summary: 'Receive Instagram webhook events' })
+  @ApiResponse({ status: 201 })
+  async instagram(@Body() dto: InboundWebhookDto): Promise<WebhookAck> {
+    return { accepted: true, provider: 'instagram', eventId: dto.eventId };
+  }
+}
+</file>
+
+<file path="src/webhooks/webhooks.module.ts">
+import { Module } from '@nestjs/common';
+import { WebhooksController } from './webhooks.controller';
+
+@Module({
+  controllers: [WebhooksController],
+})
+export class WebhooksModule {}
+</file>
+
+<file path="test/app.e2e-spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import request from 'supertest';
+import { App } from 'supertest/types';
+import { AppModule } from './../src/app.module';
+
+describe('AppController (e2e)', () => {
+  let app: INestApplication<App>;
+
+  beforeEach(async () => {
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    await app.init();
+  });
+
+  it('/ (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/')
+      .expect(200)
+      .expect('Hello World!');
+  });
+});
+</file>
+
+<file path="test/jest-e2e.json">
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  }
+}
+</file>
+
+<file path=".gitignore">
+# compiled output
+/dist
+/node_modules
+/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# temp directory
+.temp
+.tmp
+
+# Runtime data
+pids
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+smartcx.db
+*.sql
+
+# Docker volumes and temp files
+postgres_data/
+.docker/
+
+# Environment specific
+.env.production
+.env.staging
+
+# Backup files
+*.bak
+*.backup
+*.dump
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+</file>
+
+<file path="nest-cli.json">
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src"
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "smartcx-ai-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate src/database/migrations/InitSchema",
+    "migration:create": "npm run typeorm -- migration:create src/database/migrations/ManualMigration",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert",
+    "seed": "ts-node --require tsconfig-paths/register -P tsconfig.json src/database/seeds/run-seed.ts",
+    "seed:fresh": "npm run migration:revert && npm run migration:run && npm run seed"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/platform-socket.io": "^11.1.27",
+    "@nestjs/swagger": "^11.0.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "@nestjs/websockets": "^11.1.27",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "openai": "^4.80.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.13.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "socket.io": "^4.8.3",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.1",
+    "@types/passport-jwt": "^4.0.1",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typeorm-ts-node-commonjs": "^0.3.20",
+    "typescript": "^5.7.2"
+  }
+}
+</file>
+
+<file path="src/app.module.ts">
+import { Module } from '@nestjs/common';
+import { APP_GUARD } from '@nestjs/core';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AiModule } from './ai/ai.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { RolesGuard } from './auth/guards/roles.guard';
+import { BusinessModule } from './business/business.module';
+import { ChannelsModule } from './channels/channels.module';
+import { CustomersModule } from './customers/customers.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { getTypeOrmOptions } from './database/typeorm.config';
+import { IssuesModule } from './issues/issues.module';
+import { TicketsModule } from './tickets/tickets.module';
+import { RealtimeGateway } from './gateway/realtime.gateway';
+import { UsersModule } from './users/users.module';
+import { WebhooksModule } from './webhooks/webhooks.module';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env.local', '.env'],
+    }),
+    TypeOrmModule.forRootAsync({
+      useFactory: () => getTypeOrmOptions(),
+    }),
+    AiModule,
+    AuthModule,
+    BusinessModule,
+    ChannelsModule,
+    CustomersModule,
+    DashboardModule,
+    IssuesModule,
+    TicketsModule,
+    UsersModule,
+    WebhooksModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+    RealtimeGateway,
+  ],
+})
+export class AppModule {}
+</file>
+
+<file path="src/main.ts">
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from './app.module';
+
+async function bootstrap(): Promise<void> {
+  const app = await NestFactory.create(AppModule);
+
+  // Enable CORS for frontend development
+  app.enableCors({
+    origin: process.env.CORS_ORIGIN || 'http://localhost:4200',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  });
+
+  app.setGlobalPrefix('api/v1');
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
+    }),
+  );
+
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('SmartCX AI API')
+    .setDescription('B2B customer support management platform API')
+    .setVersion('1.0.0')
+    .addBearerAuth()
+    .build();
+
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('api/docs', app, document);
+
+  const port = Number(process.env.PORT ?? 3000);
+  await app.listen(port);
+}
+
+void bootstrap();
+</file>
+
+<file path="tsconfig.build.json">
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist",
+    "**/*spec.ts"
+  ]
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "moduleResolution": "node",
+    "paths": {
+      "src/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
+</file>
+
+</files>
