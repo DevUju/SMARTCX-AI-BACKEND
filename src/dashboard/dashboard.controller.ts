@@ -30,4 +30,13 @@ export class DashboardController {
   async getTrends(@CurrentUser() user: AuthenticatedUser): Promise<DashboardTrendsDto> {
     return this.dashboardService.getTrends(user.businessId);
   }
+
+  @Get('ai-insight')
+@ApiOperation({ summary: 'Get AI-generated insight for the current ticket landscape' })
+@ApiResponse({ status: 200 })
+async getAiInsight(
+  @CurrentUser() user: AuthenticatedUser,
+): Promise<{ summary: string }> {
+  return this.dashboardService.getAiInsight(user.businessId);
+}
 }

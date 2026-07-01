@@ -13,7 +13,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { getTypeOrmOptions } from './database/typeorm.config';
 import { IssuesModule } from './issues/issues.module';
 import { TicketsModule } from './tickets/tickets.module';
-import { RealtimeGateway } from './gateway/realtime.gateway';
+import { GatewayModule } from './gateway/gateway.module';
 import { UsersModule } from './users/users.module';
 import { WebhooksModule } from './webhooks/webhooks.module';
 
@@ -46,7 +46,6 @@ import { WebhooksModule } from './webhooks/webhooks.module';
       provide: APP_GUARD,
       useClass: RolesGuard,
     },
-    RealtimeGateway,
   ],
 })
 export class AppModule {}

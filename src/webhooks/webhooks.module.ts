@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { IssuesModule } from 'src/issues/issues.module';
 import { WebhooksController } from './webhooks.controller';
 import { WebhooksService } from './webhooks.service';
 import { Issue } from 'src/common/entities/issue.entity';
@@ -8,10 +8,7 @@ import { Business } from 'src/common/entities/business.entity';
 import { AiModule } from 'src/ai/ai.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Issue, Customer, Business]),
-    AiModule,
-  ],
+  imports: [IssuesModule],
   controllers: [WebhooksController],
   providers: [WebhooksService],
 })

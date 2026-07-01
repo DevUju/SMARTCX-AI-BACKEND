@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Patch, Query } from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiOperation,
@@ -12,7 +12,10 @@ import { IssueResponseDto, PaginatedIssuesDto } from './dto/issue-response.dto';
 import { ListIssuesQueryDto } from './dto/list-issues-query.dto';
 import { UpdateIssueDto } from './dto/update-issue.dto';
 import { IssuesService } from './issues.service';
-
+import { AddIssueMessageDto } from './dto/add-message.dto';
+import { QueueInsightResponseDto } from './dto/queue-insight-response.dto';
+import { SmartRepliesResponseDto } from './dto/smart-replies-response.dto';
+import { TicketDraftResponseDto } from './dto/ticket-draft-response.dto';
 @ApiTags('Issues')
 @ApiBearerAuth()
 @Controller('issues')
@@ -28,6 +31,49 @@ export class IssuesController {
   ): Promise<PaginatedIssuesDto> {
     return this.issuesService.list(user.businessId, query);
   }
+
+  @Get('insights/queue')
+@ApiOperation({ summary: 'Get an AI-generated insight summary for the current issue queue' })
+@ApiResponse({ status: 200, type: QueueInsightResponseDto })
+async getQueueInsight(
+  @CurrentUser() user: AuthenticatedUser,
+): Promise<QueueInsightResponseDto> {
+  return this.issuesService.getQueueInsight(user.businessId);
+}
+
+@Get(':id/ticket-draft')
+@ApiOperation({ summary: 'Generate an AI ticket draft from an issue conversation' })
+@ApiParam({ name: 'id' })
+@ApiResponse({ status: 200, type: TicketDraftResponseDto })
+async getTicketDraft(
+  @CurrentUser() user: AuthenticatedUser,
+  @Param('id') id: string,
+): Promise<TicketDraftResponseDto> {
+  return this.issuesService.getTicketDraft(user.businessId, id);
+}
+
+@Get(':id/smart-replies')
+@ApiOperation({ summary: 'Get AI-generated smart reply suggestions for an issue' })
+@ApiParam({ name: 'id' })
+@ApiResponse({ status: 200, type: SmartRepliesResponseDto })
+async getSmartReplies(
+  @CurrentUser() user: AuthenticatedUser,
+  @Param('id') id: string,
+): Promise<SmartRepliesResponseDto> {
+  return this.issuesService.getSmartReplies(user.businessId, id);
+}
+
+  @Post(':id/messages')
+@ApiOperation({ summary: 'Agent sends a reply message on an issue' })
+@ApiParam({ name: 'id' })
+@ApiResponse({ status: 201, type: IssueResponseDto })
+async addMessage(
+  @CurrentUser() user: AuthenticatedUser,
+  @Param('id') id: string,
+  @Body() dto: AddIssueMessageDto,
+): Promise<IssueResponseDto> {
+  return this.issuesService.addMessage(user.businessId, id, dto.content);
+}
 
   @Get(':id')
   @ApiOperation({ summary: 'Get an issue by id in current business tenant scope' })

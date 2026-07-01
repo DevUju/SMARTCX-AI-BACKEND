@@ -2,35 +2,49 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { InboundWebhookDto } from './dto/inbound-webhook.dto';
-import { WebhooksService, WebhookAck } from './webhooks.service';
-import { ChannelType } from 'src/common/enums/channel-type.enum';
+import { Public } from 'src/auth/decorators/public.decorator';
+import { ChannelType } from 'src/common/enums';
+import { IssueResponseDto } from 'src/issues/dto/issue-response.dto';
+import { IssuesService } from 'src/issues/issues.service';
+
+
+type WebhookAck = {
+  accepted: boolean;
+  provider: 'whatsapp' | 'instagram';
+  eventId: string;
+};
 
 @ApiTags('Webhooks')
 @Controller('webhooks')
 export class WebhooksController {
-  constructor(private readonly webhooksService: WebhooksService) {}
+constructor(private readonly issuesService: IssuesService) {}
 
   @Public()
   @Post('whatsapp')
-  @ApiOperation({ summary: 'Receive WhatsApp webhook events' })
-  @ApiResponse({ status: 201 })
-  async whatsapp(@Body() dto: InboundWebhookDto): Promise<WebhookAck> {
-    return this.webhooksService.handleInbound(ChannelType.WHATSAPP, dto);
+  @ApiOperation({ summary: 'Receive WhatsApp message and create an Issue' })
+  @ApiResponse({ status: 201, type: IssueResponseDto })
+  async whatsapp(@Body() dto: InboundWebhookDto): Promise<IssueResponseDto> {
+    return this.createIssueFromWebhook(dto, ChannelType.WHATSAPP);
   }
 
   @Public()
   @Post('instagram')
-  @ApiOperation({ summary: 'Receive Instagram webhook events' })
-  @ApiResponse({ status: 201 })
-  async instagram(@Body() dto: InboundWebhookDto): Promise<WebhookAck> {
-    return this.webhooksService.handleInbound(ChannelType.INSTAGRAM, dto);
+  @ApiOperation({ summary: 'Receive Instagram message and create an Issue' })
+  @ApiResponse({ status: 201, type: IssueResponseDto })
+  async instagram(@Body() dto: InboundWebhookDto): Promise<IssueResponseDto> {
+    return this.createIssueFromWebhook(dto, ChannelType.INSTAGRAM);
   }
 
-  @Public()
-  @Post('email')
-  @ApiOperation({ summary: 'Receive Email webhook events' })
-  @ApiResponse({ status: 201 })
-  async email(@Body() dto: InboundWebhookDto): Promise<WebhookAck> {
-    return this.webhooksService.handleInbound(ChannelType.EMAIL, dto);
+  private async createIssueFromWebhook(
+    dto: InboundWebhookDto,
+    channelType: ChannelType,
+  ): Promise<IssueResponseDto> {
+    return this.issuesService.create(dto.businessId, {
+      customerName: dto.customerName,
+      channelType,
+      phone: dto.phone,
+      email: dto.email,
+      message: dto.message,
+    });
   }
 }
