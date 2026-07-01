@@ -210,6 +210,12 @@ export class TicketsService {
   ): Promise<TicketMessageResponseDto> {
     await this.findTenantTicket(businessId, ticketId);
 
+    const content = input.content?.trim() ?? '';
+    const attachmentUrl = input.attachmentUrl?.trim() ?? null;
+    if (!content && !attachmentUrl) {
+      throw new BadRequestException('Message content or attachment is required');
+    }
+
     const senderType = input.senderType ?? MessageSenderType.AGENT;
     if (senderType !== MessageSenderType.AGENT && actor.role === UserRole.AGENT) {
       throw new BadRequestException('Agents can only create agent messages');
@@ -219,8 +225,8 @@ export class TicketsService {
       ticketId,
       senderId: actor.userId,
       senderType,
-      content: input.content,
-      attachmentUrl: input.attachmentUrl ?? null,
+      content,
+      attachmentUrl,
       isInternalNote: input.isInternalNote ?? false,
     });
 

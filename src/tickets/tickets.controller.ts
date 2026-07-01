@@ -1,6 +1,20 @@
-import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
   ApiOperation,
   ApiParam,
   ApiResponse,
@@ -80,6 +94,47 @@ export class TicketsController {
     @Body() dto: AssignTicketDto,
   ): Promise<TicketResponseDto> {
     return this.ticketsService.assign(user.businessId, id, dto);
+  }
+
+  @Post(':id/messages/attachment')
+  @ApiOperation({ summary: 'Post ticket message with file attachment in tenant scope' })
+  @ApiParam({ name: 'id' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        content: { type: 'string' },
+        isInternalNote: { type: 'boolean' },
+        senderType: { type: 'string', enum: ['customer', 'agent', 'ai_bot'] },
+        file: { type: 'string', format: 'binary' },
+      },
+      required: ['file'],
+    },
+  })
+  @ApiResponse({ status: 201, type: TicketMessageResponseDto })
+  @UseInterceptors(
+    FileInterceptor('file', {
+      dest: 'uploads/attachments',
+      limits: { fileSize: 10 * 1024 * 1024 },
+    }),
+  )
+  async addMessageWithAttachment(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @UploadedFile() file: { filename: string; originalname: string } | undefined,
+    @Body() dto: AddTicketMessageDto,
+  ): Promise<TicketMessageResponseDto> {
+    if (!file) {
+      throw new BadRequestException('Attachment file is required');
+    }
+
+    const normalizedContent = dto.content?.trim() ?? file.originalname;
+    return this.ticketsService.addMessage(user.businessId, id, user, {
+      ...dto,
+      content: normalizedContent,
+      attachmentUrl: `/uploads/attachments/${file.filename}`,
+    });
   }
 
   @Post(':id/messages')

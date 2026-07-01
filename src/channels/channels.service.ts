@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Channel } from 'src/common/entities/channel.entity';
+import { ChannelType } from 'src/common/enums/channel-type.enum';
 import { ConnectChannelDto } from './dto/connect-channel.dto';
 
 @Injectable()
@@ -36,6 +37,28 @@ export class ChannelsService {
       credentials: input.credentials,
       isConnected: true,
       connectedAt: new Date(),
+    });
+    return this.channelRepository.save(channel);
+  }
+
+  async disconnect(businessId: string, type: ChannelType): Promise<Channel> {
+    const existing = await this.channelRepository.findOne({
+      where: { businessId, type },
+    });
+
+    if (existing) {
+      existing.credentials = {};
+      existing.isConnected = false;
+      existing.connectedAt = null;
+      return this.channelRepository.save(existing);
+    }
+
+    const channel = this.channelRepository.create({
+      businessId,
+      type,
+      credentials: {},
+      isConnected: false,
+      connectedAt: null,
     });
     return this.channelRepository.save(channel);
   }

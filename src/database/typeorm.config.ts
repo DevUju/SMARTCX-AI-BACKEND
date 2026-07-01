@@ -11,22 +11,13 @@ import { User } from 'src/common/entities/user.entity';
 export const getTypeOrmOptions = (): DataSourceOptions => ({
   type: 'postgres',
   host: process.env.DB_HOST ?? 'localhost',
-  port: Number(process.env.DB_PORT),
-  database: process.env.DB_NAME,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD || 'Agnes123.',
-  entities: [
-    Business,
-    User,
-    Channel,
-    Customer,
-    Issue,
-    Ticket,
-    Message,
-    AuditLog,
-  ],
+  port: Number(process.env.DB_PORT ?? 5433),
+  database: process.env.DB_NAME ?? 'smart',
+  username: process.env.DB_USER ?? 'postgres',
+  password: process.env.DB_PASSWORD ?? 'postgres',
+  entities: [Business, User, Channel, Customer, Issue, Ticket, Message, AuditLog],
   migrations: ['dist/database/migrations/*.js'],
-  synchronize: process.env.NODE_ENV !== 'production',
+  synchronize: false,
   logging: process.env.NODE_ENV !== 'production',
   ssl:
     process.env.NODE_ENV === 'production'

@@ -3,10 +3,11 @@ import { IsBoolean, IsEnum, IsOptional, IsString, MaxLength } from 'class-valida
 import { MessageSenderType } from 'src/common/enums/message-sender-type.enum';
 
 export class AddTicketMessageDto {
-  @ApiProperty({ example: 'We have escalated your case and will update shortly.' })
+  @ApiPropertyOptional({ example: 'We have escalated your case and will update shortly.' })
+  @IsOptional()
   @IsString()
   @MaxLength(5000)
-  content!: string;
+  content?: string;
 
   @ApiPropertyOptional({ example: null })
   @IsOptional()

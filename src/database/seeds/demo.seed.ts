@@ -34,7 +34,13 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
   });
 
   if (existingUser) {
+    await channelRepo.update(
+      { businessId: existingUser.businessId },
+      { isConnected: false, connectedAt: null, credentials: {} },
+    );
+
     console.log('✅ Demo data already exists! Skipping seeding.');
+    console.log('✓ Reset existing demo channels to disconnected state for fresh connection tests.');
     console.log('\n📝 Demo Login Credentials:');
     console.log('   Email: aisha@smartcxdemo.com');
     console.log('   Password: Demo@1234');
@@ -130,9 +136,9 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
 
   // Create demo channels
   const channelData = [
-    { type: ChannelType.WHATSAPP, isConnected: true },
-    { type: ChannelType.INSTAGRAM, isConnected: true },
-    { type: ChannelType.EMAIL, isConnected: true },
+    { type: ChannelType.WHATSAPP, isConnected: false },
+    { type: ChannelType.INSTAGRAM, isConnected: false },
+    { type: ChannelType.EMAIL, isConnected: false },
   ];
 
   for (const data of channelData) {
@@ -140,13 +146,13 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
       id: uuidv4(),
       businessId,
       type: data.type,
-      credentials: { accountId: `demo-${data.type}` },
+      credentials: {},
       isConnected: data.isConnected,
-      connectedAt: new Date(),
+      connectedAt: null,
     });
     await channelRepo.save(channel);
   }
-  console.log('✓ Created 3 demo channels (WhatsApp, Instagram, Email)');
+  console.log('✓ Created 3 demo channels (WhatsApp, Instagram, Email) in disconnected state');
 
   // Create demo issues
   const issueMessages = [
