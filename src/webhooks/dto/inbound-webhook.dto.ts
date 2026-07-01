@@ -16,8 +16,8 @@
 //   @IsObject()
 //   payload!: Record<string, unknown>;
 // }
-import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsEmail, IsNotEmpty, IsObject, IsOptional, IsString, IsUUID } from 'class-validator';
 
 export class InboundWebhookDto {
   @ApiProperty({ description: 'The business this message is for' })
@@ -43,4 +43,19 @@ export class InboundWebhookDto {
   @IsString()
   @IsNotEmpty()
   message!: string;
+
+  @ApiPropertyOptional({ example: 'event-12345' })
+  @IsOptional()
+  @IsString()
+  eventId?: string;
+
+  @ApiPropertyOptional({ example: 'whatsapp' })
+  @IsOptional()
+  @IsString()
+  source?: string;
+
+  @ApiPropertyOptional({ type: 'object', additionalProperties: true })
+  @IsOptional()
+  @IsObject()
+  payload?: Record<string, unknown>;
 }

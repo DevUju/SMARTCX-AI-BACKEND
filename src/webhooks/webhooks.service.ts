@@ -34,7 +34,8 @@ export class WebhooksService {
   ) {}
 
   async handleInbound(provider: ChannelType, dto: InboundWebhookDto): Promise<WebhookAck> {
-    const { eventId, payload } = dto;
+    const eventId = dto.eventId ?? 'unknown';
+    const payload = dto.payload ?? {};
     const content = this.extractMessageContent(provider, payload);
     if (!content) {
       this.logger.warn(`Inbound webhook ${eventId} missing content for provider ${provider}`);

@@ -2,7 +2,6 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { InboundWebhookDto } from './dto/inbound-webhook.dto';
-import { Public } from 'src/auth/decorators/public.decorator';
 import { ChannelType } from 'src/common/enums';
 import { IssueResponseDto } from 'src/issues/dto/issue-response.dto';
 import { IssuesService } from 'src/issues/issues.service';
